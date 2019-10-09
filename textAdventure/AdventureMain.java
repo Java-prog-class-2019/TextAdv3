@@ -1,5 +1,9 @@
 package textAdventure;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
 /* A skeleton program for a text adventure game */
 /* some other parts, like rooms, will be explained in class */
 
