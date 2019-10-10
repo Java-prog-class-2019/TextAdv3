@@ -49,14 +49,14 @@ public class AdventureMain {
 			
 		}
 
-		// does anything need to be done after th emain game loop exits?
+		// does anything need to be done after the main game loop exits?
 
 	}
 
 	void setup() {
 		Room.setupRooms(roomList);
 		// ... more stuff ...
-		currentRoom = "clearing";
+		currentRoom = "Police Station";
 	}
 
 	String getCommand() {
