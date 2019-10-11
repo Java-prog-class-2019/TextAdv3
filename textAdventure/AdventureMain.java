@@ -16,6 +16,31 @@ public class AdventureMain {
 	//instance variables
 	//ArrayList<Room> roomList = new ArrayList<Room>();
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
+	
+	
+	/**LIST OF ROOMS**/
+	roomList.put("poice_station",Room);
+	roomList.put("butchery",Room);
+	roomList.put("dirt_road",Room);
+	roomList.put("corn_field",Room);
+	roomList.put("house1",Room);
+	roomList.put("house2",Room);
+	roomList.put("house3",Room);
+	roomList.put("house4",Room);
+	roomList.put("bract_street",Room);
+	roomList.put("bm_intersection",Room);
+	roomList.put("main_street",Room);
+	roomList.put("park",Room);
+	roomList.put("bakery",Room);
+	roomList.put("weapon_shop",Room);
+	roomList.put("parole_house",Room);
+	roomList.put("rostock_way",Room);
+	roomList.put("rb_intersection",Room);
+	roomList.put("rm_intersection",Room);
+	roomList.put("main_tunnel",Room);
+	roomList.put("bract_tunnel",Room);
+	
+	
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	ArrayList<String> inventory = new ArrayList<String>();
 	String currentRoom;
