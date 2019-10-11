@@ -42,7 +42,7 @@ public class AdventureMain {
 	roomList.put("bract_tunnel",Room);
 */
 	
-	//HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
+	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	//ArrayList<String> inventory = new ArrayList<String>();
 	String currentRoom;
 	Player player;
@@ -83,7 +83,31 @@ public class AdventureMain {
 	//	Room.setupRooms(roomList);
 		// ... more stuff ...
 		currentRoom = "Police Station";
-		System.out.println("Welcome to our game. \n You are now in " + currentRoom);
+		//******Added*********
+		System.out.println("This is, The Oakville Mystery.");
+		System.out.println("A Town once known as peaceful and happy until one day people just disappear.\n"
+		+ " As the best detective around, you’re asked to take on this case. Follow the clues\n"
+		+ " around town to find the (#) missing people and catch the Kidnapper. The town is\n"
+		+ " counting on you to restore the happy and calm reputation.");
+		
+		
+		itemList.put("Phone", Item);
+		
+		// Police Station
+		itemList.put("Badge", Item); //Can take and show people (keys)
+		itemList.put("Gun", Item);   //Can take and shoot people or things 
+		itemList.put("File", Item);  //Can take and look at 
+		// Food 
+		// Add int?
+		itemList.put("Bagel", Item); //Can take and eat 
+		itemList.put("Muffin", Item);//Can take and eat 
+		itemList.put("Coffee", Item);//Can take and drink
+		// Evidence 
+		// Inspect == look at and send to station
+		itemList.put("Knife", Item); //Can inspect
+		itemList.put("Drop of blood", Item);//Can inspect
+		itemList.put("Deli Meat", Item);//Can inspect 
+		
 	}
 
 	String getCommand() {
