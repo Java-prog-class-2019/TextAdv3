@@ -83,7 +83,7 @@ public class AdventureMain {
 	//	Room.setupRooms(roomList);
 		// ... more stuff ...
 		currentRoom = "Police Station";
-		System.out.println("Welcome to our game. \n You are now in " + currentRoom);
+		System.out.println("You are at the " + currentRoom);
 	}
 
 	String getCommand() {
