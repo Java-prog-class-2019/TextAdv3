@@ -3,6 +3,7 @@ package textAdventure;
 //TITLE: The Oakville Mystery//
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class AdventureMain {
 	
 	
 	/**LIST OF ROOMS**/
-	roomList.put("poice_station",Room);
+/*	roomList.put("poice_station",Room);
 	roomList.put("butchery",Room);
 	roomList.put("dirt_road",Room);
 	roomList.put("corn_field",Room);
@@ -39,10 +40,10 @@ public class AdventureMain {
 	roomList.put("rm_intersection",Room);
 	roomList.put("main_tunnel",Room);
 	roomList.put("bract_tunnel",Room);
+*/
 	
-	
-	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
-	ArrayList<String> inventory = new ArrayList<String>();
+	//HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
+	//ArrayList<String> inventory = new ArrayList<String>();
 	String currentRoom;
 	Player player;
 	
@@ -59,7 +60,7 @@ public class AdventureMain {
 
 		setup(); //create all objects needed, including map; print intro. message
 		
-		lookAtRoom(true); //display information about the current room
+	//	lookAtRoom(true); //display information about the current room
 
 		/***** MAIN GAME LOOP *****/
 		while (playing) {
@@ -79,9 +80,10 @@ public class AdventureMain {
 	}
 
 	void setup() {
-		Room.setupRooms(roomList);
+	//	Room.setupRooms(roomList);
 		// ... more stuff ...
 		currentRoom = "Police Station";
+		System.out.println("Welcome to our game. \n You are now in " + currentRoom);
 	}
 
 	String getCommand() {
@@ -119,7 +121,7 @@ public class AdventureMain {
 		}
 
 		//separate out into word1, word2, etc.
-		// ...
+		String word1 = words[0];
 
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
@@ -133,25 +135,25 @@ public class AdventureMain {
 				return false;
 			}			
 		case "n": case "s": case "w": case "e": case "u": case "d":
-		case "north": case "south": case "west": case "east": case "up": case "down":sep
-			moveToRoom(word1.charAt(0));
+		case "north": case "south": case "west": case "east": case "up": case "down":
+		//	moveToRoom(word1.charAt(0));
 			break;
 		case "i": case "inventory":
-			showInventory();
+		//	showInventory();
 			break;
 		case "sleep":
-			sleep();			
+		//	sleep();			
 			break;	
 		case "help":
-			printHelp();
+		//	printHelp();
 			break;
 			
 		/**** two word commands ****/		
 		case "read":
-			readObject(word2);
+			//readObject(word2);
 			break;
 		case "eat":
-			eatItem(word2);
+		//	eatItem(word2);
 			break;		
 			
 		/**** SPECIAL COMMANDS ****/
