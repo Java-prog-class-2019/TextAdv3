@@ -45,7 +45,6 @@ public class AdventureMain {
 			command = getCommand();
 
 			playing = parseCommand(command);
-
 			//check to see if player has died (in whichever various ways the player can die)
 
 			//check to see if the player has won the game
@@ -59,7 +58,7 @@ public class AdventureMain {
 	void setup() {
 	//	Room.setupRooms(roomList);
 		// ... more stuff ...
-		currentRoom = "Police Station";
+		currentRoom = "police_station";
 		//******Added*********
 		System.out.println("This is, The Oakville Mystery.");
 		System.out.println("\n\t A Town once known as peaceful and happy until one day people just disappear.\n\t"

@@ -66,7 +66,7 @@ class Room{
 	static void setupRooms(HashMap<String,Room> roomList) {	
 		
 		//Basic Room thingy//
-//		r = new Room("Name", "Description");
+//		r = new Room("title", "Description");
 //		r.setExits("north", "south", "west", "east", "up", "down");//N,S,W,E,U,D -- put roomList names here
 //		roomList.put("name in the list",r);
 		
