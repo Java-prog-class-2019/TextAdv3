@@ -37,7 +37,7 @@ public class AdventureMain {
 
 		setup(); //create all objects needed, including map; print intro. message
 		
-	//	lookAtRoom(true); //display information about the current room
+		lookAtRoom(true); //display information about the current room
 
 		/***** MAIN GAME LOOP *****/
 		while (playing) {
@@ -56,7 +56,7 @@ public class AdventureMain {
 	}
 
 	void setup() {
-	//	Room.setupRooms(roomList);
+		Room.setupRooms(roomList);
 		// ... more stuff ...
 		//******Added*********
 		System.out.println("This is, The Oakville Mystery.");
@@ -148,5 +148,9 @@ public class AdventureMain {
 	}	
 
 	//tons of other methods go here ...		
+	void lookAtRoom(boolean showDesc) {
+		System.out.println("\n-------" + roomList.get(currentRoom).getTitle() + "--------");
+		if (showDesc) System.out.println(roomList.get(currentRoom).getDesc());
+	}
 	
 }
