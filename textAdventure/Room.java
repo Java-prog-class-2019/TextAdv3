@@ -81,6 +81,12 @@ class Room{
 				+ "Your office is in here. Don't forget your badge before you leave!");
 		r.setExits("", "", "", "police_station", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("a_block",r);
+
+		//B BLOCK//
+		r = new Room("B Block", "This is B Block of the Police Station. "
+				+ "This is the Armoury. There are racks of guns on the wall.");
+		r.setExits("", "", "police_station", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("b_block",r);
 		
 	
 /* 		//UNCOMMENT THIS FOR DEBUGGING
