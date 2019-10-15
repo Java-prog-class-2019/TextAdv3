@@ -20,7 +20,6 @@ public class AdventureMain {
 	
 	
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
-	//ArrayList<String> inventory = new ArrayList<String>();
 	String currentRoom;
 	Player player;
 	
