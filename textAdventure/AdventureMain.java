@@ -19,29 +19,6 @@ public class AdventureMain {
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
 	
 	
-	/**LIST OF ROOMS**/
-/*	roomList.put("poice_station",Room);
-	roomList.put("butchery",Room);
-	roomList.put("dirt_road",Room);
-	roomList.put("corn_field",Room);
-	roomList.put("house1",Room);
-	roomList.put("house2",Room);
-	roomList.put("house3",Room);
-	roomList.put("house4",Room);
-	roomList.put("bract_street",Room);
-	roomList.put("bm_intersection",Room);
-	roomList.put("main_street",Room);
-	roomList.put("park",Room);
-	roomList.put("bakery",Room);
-	roomList.put("weapon_shop",Room);
-	roomList.put("parole_house",Room);
-	roomList.put("rostock_way",Room);
-	roomList.put("rb_intersection",Room);
-	roomList.put("rm_intersection",Room);
-	roomList.put("main_tunnel",Room);
-	roomList.put("bract_tunnel",Room);
-*/
-	
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	//ArrayList<String> inventory = new ArrayList<String>();
 	String currentRoom;
@@ -85,29 +62,10 @@ public class AdventureMain {
 		currentRoom = "Police Station";
 		//******Added*********
 		System.out.println("This is, The Oakville Mystery.");
-		System.out.println("A Town once known as peaceful and happy until one day people just disappear.\n"
-		+ " As the best detective around, you’re asked to take on this case. Follow the clues\n"
-		+ " around town to find the (#) missing people and catch the Kidnapper. The town is\n"
-		+ " counting on you to restore the happy and calm reputation.");
-		
-		
-		itemList.put("Phone", Item);
-		
-		// Police Station
-		itemList.put("Badge", Item); //Can take and show people (keys)
-		itemList.put("Gun", Item);   //Can take and shoot people or things 
-		itemList.put("File", Item);  //Can take and look at 
-		// Food 
-		// Add int?
-		itemList.put("Bagel", Item); //Can take and eat 
-		itemList.put("Muffin", Item);//Can take and eat 
-		itemList.put("Coffee", Item);//Can take and drink
-		// Evidence 
-		// Inspect == look at and send to station
-		itemList.put("Knife", Item); //Can inspect
-		itemList.put("Drop of blood", Item);//Can inspect
-		itemList.put("Deli Meat", Item);//Can inspect 
-		
+		System.out.println("\n\t A Town once known as peaceful and happy until one day people just disappear.\n\t"
+		+ " As the best detective around, you’re asked to take on this case. Follow the clues\n\t"
+		+ " around town to find the (#) missing people and catch the Kidnapper. The town is\n\t"
+		+ " counting on you to restore the happy and calm reputation.");	
 	}
 
 	String getCommand() {
@@ -177,7 +135,7 @@ public class AdventureMain {
 			//readObject(word2);
 			break;
 		case "eat":
-		//	eatItem(word2);
+			//eatItem(word2);
 			break;		
 			
 		/**** SPECIAL COMMANDS ****/
