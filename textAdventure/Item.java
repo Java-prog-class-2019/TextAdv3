@@ -22,16 +22,16 @@ class Item {
 		
 		Item a = new Item("Your Phone");
 		//z.descrRoom = "there is a shiny object near by";	//this is displayed along with the room description when you look at the room.
-		itemList.put("Phone",a);						//this is the true (hashmap) name of the item. It's never displayed.
-		//roomList.get("path1").items.add("sandwich");	//and here the item is added to the specific room that you want it in. 
+		itemList.put("Phone",a);						    //this is the true (hashmap) name of the item. It's never displayed.
+		//roomList.get("path1").items.add("sandwich");	    //and here the item is added to the specific room that you want it in. 
 
 		Item b = new Item("Dectective's Badge");
 		itemList.put("Badge",b);
-		//roomList.get("path1").items.add("Badge");
+		//roomList.get("Police Station").items.add("Badge");
 		
 		Item c = new Item("Case File");
 		itemList.put("File",c);
-		//roomList.get("path1").items.add("File");
+		//roomList.get("Police Station").items.add("File");
 		
 		Item d = new Item("Bagel");
 		//z.descrRoom = "Something smells good."
