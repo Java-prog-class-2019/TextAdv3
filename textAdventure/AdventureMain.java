@@ -149,8 +149,8 @@ public class AdventureMain {
 
 	//tons of other methods go here ...		
 	void lookAtRoom(boolean showDesc) {
-		System.out.println("\n-------" + roomList.get(currentRoom).getTitle() + "--------");
-		if (showDesc) System.out.println(roomList.get(currentRoom).getDesc());
+		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
+		System.out.println(roomList.get(currentRoom).getDesc());
 	}
 	
 }

@@ -70,24 +70,48 @@ class Room{
 //		r.setExits("north", "south", "west", "east", "up", "down");//N,S,W,E,U,D -- put roomList names here
 //		roomList.put("name in the list",r);
 		
-		//POLICE STATION//
+	//POLICE STATION//
 		Room r = new Room("Police Station", "you are in the main block of the Police Station. "
 				+ "South of you is the Exit, East is B Block, and West is A Block.");
 		r.setExits("", "bract_street", "a_block", "b_block", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("police_station",r);
 		
-		//A BLOCK//
-		r = new Room("A Block", "This is A Block of the Police Station. "
+	//A BLOCK//
+		r = new Room("Police Station", "This is A Block of the Police Station. "
 				+ "Your office is in here. Don't forget your badge before you leave!");
 		r.setExits("", "", "", "police_station", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("a_block",r);
 
-		//B BLOCK//
-		r = new Room("B Block", "This is B Block of the Police Station. "
+	//B BLOCK//
+		r = new Room("Police Station", "This is B Block of the Police Station. "
 				+ "This is the Armoury. There are racks of guns on the wall.");
 		r.setExits("", "", "police_station", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("b_block",r);
 		
+	//Bract Street Main//
+		r = new Room("Bract Street", "The Eastern section of Bract Street.");
+		r.setExits("police_station", "", "b&m_intersection", "butchery", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("bract_street",r);
+
+	//Bract and Main Intersection//
+		r = new Room("Intersection", "This is the intersection between Bract Street and Main Street.");
+		r.setExits("", "main_street", "bract_left", "bract_street", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("b&m_intersection",r);
+		
+	//Bract Street Left//
+		r = new Room("Bract Street", "The Western stretch of Bract Street.");
+		r.setExits("", "", "b&r_intersection", "b&m_intersection", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("bract_left",r);
+		
+	//Bract and Rostock Intersection//
+		r = new Room("Intersection", "This is the intersection between Bract Street and Rostock Way.");
+		r.setExits("", "rostock_way", "bract_tunnel", "bract_left", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("b&r_intersection",r);
+
+	//Bract Tunnel//
+		r = new Room("Tunnel", "This is a tunnel out of town. Don't think the kidnapper would have left through here.");
+		r.setExits("", "", "", "b&r_intersection", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("bract_tunnel",r);
 	
 /* 		//UNCOMMENT THIS FOR DEBUGGING
  
