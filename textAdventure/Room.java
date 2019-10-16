@@ -88,8 +88,8 @@ class Room{
 		r.setExits("", "", "police_station", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("b_block",r);
 		
-	//Bract Street Main//
-		r = new Room("Bract Street", "The Eastern section of Bract Street.");
+	//Bract Street//
+		r = new Room("Bract Street", "The eastern stretch of Bract Street.");
 		r.setExits("police_station", "", "b&m_intersection", "butchery", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("bract_street",r);
 
@@ -99,7 +99,7 @@ class Room{
 		roomList.put("b&m_intersection",r);
 		
 	//Bract Street Left//
-		r = new Room("Bract Street", "The Western stretch of Bract Street.");
+		r = new Room("Bract Street", "The western stretch of Bract Street.");
 		r.setExits("", "", "b&r_intersection", "b&m_intersection", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("bract_left",r);
 		
@@ -112,6 +112,44 @@ class Room{
 		r = new Room("Tunnel", "This is a tunnel out of town. Don't think the kidnapper would have left through here.");
 		r.setExits("", "", "", "b&r_intersection", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("bract_tunnel",r);
+
+	//Main Street//
+		r = new Room("Main Street", "The northern stretch of Main Street. "
+				+ "To the West is the park, and to the East is the Bakery.");
+		r.setExits("b&m_intersection", "main_south", "park", "bakery", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("main_street",r);
+
+	//Main Street South//
+		r = new Room("Main Street", "The southern stretch of Main Street. "
+				+ "To the West is Rostock Way, and to the East is the Weapon Store.");
+		r.setExits("main_street", "main_tunnel", "r&m_intersection", "weapon_store", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("main_south",r);
+		
+	//Park//
+		r = new Room("Park", "This is the main park of Oakville. "
+				+ "North of you is Bract Street. South and West is Rostock Way, and East is Main Street.");
+		r.setExits("bract_left", "rostock_south", "rostock_north", "main_street", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("park",r);
+		
+	//Main Tunnel//
+		r = new Room("Tunnel", "This is a tunnel out of town. Don't think the kidnapper would have left through here.");
+		r.setExits("main_south", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("main_tunnel",r);
+		
+	//Rostock and Main Intersection//
+		r = new Room("Intersction", "This is the intersection of Rostock Way and Main Street.");
+		r.setExits("", "house1", "rostock_south", "main_south", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("r&m_intersction",r);
+		
+	//Rostock Way South//
+		r = new Room("Rostock Way", "The southern stretch of Rostock Way.");
+		r.setExits("park", "house2", "rostock_north", "r&m_intersection", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("rostock_south",r);
+		
+	//Rostock Way North//
+		r = new Room("Rostock Way", "The northern stretch of Rostock Way.");
+		r.setExits("b&r_intersection", "rostock_south", "house3", "park", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("rostock_north",r);
 	
 /* 		//UNCOMMENT THIS FOR DEBUGGING
  
