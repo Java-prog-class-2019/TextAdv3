@@ -53,6 +53,22 @@ public class AdventureMain {
 		new AdventureMain();
 	}
 
+	//ITEM THINGS
+	public void itemKey() {
+		boolean invExist = false;
+		boolean roomExist = true;
+		String description = "it's a key";
+		int miscValue;
+	}
+	
+	public void itemFood() {
+		boolean invExist = false;
+		boolean roomExist = true;
+		String description = "it's food";
+		int healthValue;
+		int stack;
+	}
+	
 	AdventureMain() {
 
 		boolean playing = true;
@@ -78,7 +94,11 @@ public class AdventureMain {
 		// does anything need to be done after the main game loop exits?
 
 	}
-
+	
+	void readObject(String words[]) {
+		System.out.println(description);
+	}
+	
 	void setup() {
 	//	Room.setupRooms(roomList);
 		// ... more stuff ...
@@ -122,6 +142,8 @@ public class AdventureMain {
 
 		//separate out into word1, word2, etc.
 		String word1 = words[0];
+		String word2 = words[1];
+		//String word3 = words[2];
 
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
@@ -150,7 +172,7 @@ public class AdventureMain {
 			
 		/**** two word commands ****/		
 		case "read":
-			//readObject(word2);
+			readObject(word2);
 			break;
 		case "eat":
 		//	eatItem(word2);
@@ -163,6 +185,11 @@ public class AdventureMain {
 			System.out.println("Sorry, I don't understand that command");
 		}
 		return true;
+	}
+
+	private void readObject(String word2) {
+		// TODO Auto-generated method stub
+		
 	}	
 
 	//tons of other methods go here ...		
