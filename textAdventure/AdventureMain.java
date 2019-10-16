@@ -62,7 +62,8 @@ public class AdventureMain {
 		System.out.println("\n\t A Town once known as peaceful and happy until one day people just disappear.\n\t"
 		+ " As the best detective around, you’re asked to take on this case. Follow the clues\n\t"
 		+ " around town to find the five missing people and catch the Kidnapper. The town is\n\t"
-		+ " counting on you to restore the happy and calm reputation.");
+		+ " counting on you to restore the happy and calm reputation.\n\t"
+		+ " Dont forget to eat along the way and keep your health up.");
 		//starting room
 		currentRoom = "police_station";
 	}
