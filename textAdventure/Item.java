@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 class Item {
 	
+	
+
 	/*****************************************************************************************
 	 * About items:
 	 * ============
@@ -34,36 +36,40 @@ class Item {
 		//roomList.get("Police Station").items.add("File");
 		
 		Item d = new Item("Bagel");
-		//z.descrRoom = "Something smells good."
-		//d.foodpoints = 10;
+		AdventureMain.health++;
 		itemList.put("Bagel",d);
-		//roomList.get("path1").items.add("Bagel");
+		//roomList.get("Bakery").items.add("Bagel");
 		
 		Item e = new Item("Muffin");
-		//d.foodpoints = 10;
+		AdventureMain.health++;
 		itemList.put("Muffin",e);
-		//roomList.get("path1").items.add("Muffin");
+		//roomList.get("Bakery").items.add("Muffin");
 		
 		Item f = new Item("Hot Coffee");
-		//d.foodpoints = 10;
+		AdventureMain.health++;
 		itemList.put("Coffee",f);
-		//roomList.get("path1").items.add("Coffee");
+		//roomList.get("Bakery").items.add("Coffee");
 		
 		Item g = new Item("Knife");
 		itemList.put("Knife",g);
-		//roomList.get("path1").items.add("Knife");
+		//roomList.get("Deli").items.add("Knife");
 		
 		Item h = new Item("Drop of Blood");
 		itemList.put("Blood",h);
-		//roomList.get("path1").items.add("Blood");
+		//roomList.get("Deli").items.add("Blood");
 		
 		Item i = new Item("Deli Meat");
 		itemList.put("Meat",i);
-		//roomList.get("path1").items.add("Meat");
+		//roomList.get("Deli").items.add("Meat");
 		
 		Item j = new Item("Loaded Gun");
 		itemList.put("Gun",j);
-		//roomList.get("path1").items.add("Gun");
+		//roomList.get("Police Station").items.add("Gun");
+		
+		Item k = new Item("Hot Coffee");
+		AdventureMain.health++;
+		itemList.put("Coffee",k);
+		//roomList.get("Police Station").items.add("Coffee");
 		
 	}
 }

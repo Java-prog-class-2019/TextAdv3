@@ -23,6 +23,8 @@ public class AdventureMain {
 	String currentRoom;
 	Player player;
 	
+	public static int health = 10;
+	
 	int turns = 0;
 
 	public static void main(String[]args){
@@ -93,6 +95,7 @@ public class AdventureMain {
 		text = text.replaceAll("pick up", "pickup");
 		text = text.replaceAll("look at", "lookat");
 		text = text.replaceAll("climb up", "climbup");
+		text = text.replaceAll("show health", "health");
 		
 		String words[] = text.split(" ");
 		
@@ -121,7 +124,7 @@ public class AdventureMain {
 		//	moveToRoom(word1.charAt(0));
 			break;
 		case "i": case "inventory":
-		//	showInventory();
+			lookAtInventory(false);
 			break;
 		case "sleep":
 		//	sleep();			
@@ -136,7 +139,10 @@ public class AdventureMain {
 			break;
 		case "eat":
 			//eatItem(word2);
-			break;		
+			break;
+		case "health":
+			lookAtHealth(false);
+			break;
 			
 		/**** SPECIAL COMMANDS ****/
 		// ...		
@@ -151,6 +157,13 @@ public class AdventureMain {
 	void lookAtRoom(boolean showDesc) {
 		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
 		System.out.println(roomList.get(currentRoom).getDesc());
+	}
+	void lookAtHealth(boolean showDesc) {
+		System.out.println("\n_.-._. " + "Heath: " + health + " ._.-._");
+	}
+	void lookAtInventory(boolean showDesc) {
+		//System.out.println("\n_.-._.-" + itemList.get(showDesc) + "-._.-._");
+		//System.out.println(itemList.get(showDesc).getDesc());
 	}
 	
 }
