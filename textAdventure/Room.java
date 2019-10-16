@@ -118,12 +118,24 @@ class Room{
 				+ "To the West is the park, and to the East is the Bakery.");
 		r.setExits("b&m_intersection", "main_south", "park", "bakery", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("main_street",r);
+		
+	//Bakery//
+		r = new Room("Bakery", "\"Welcome to Dave\'s Bakery. How can I help you?\" "
+				+ "the girl at the counter says.");
+		r.setExits("", "", "main_street", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("bakery",r);
 
 	//Main Street South//
 		r = new Room("Main Street", "The southern stretch of Main Street. "
 				+ "To the West is Rostock Way, and to the East is the Weapon Store.");
 		r.setExits("main_street", "main_tunnel", "r&m_intersection", "weapon_store", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("main_south",r);
+		
+	//Weapon Store//
+		r = new Room("title", "\"What can I do ya for, Officer?\" "
+				+ "a man at the counter says.");
+		r.setExits("", "", "main_south", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("weapon_store",r);
 		
 	//Park//
 		r = new Room("Park", "This is the main park of Oakville. "
@@ -150,6 +162,36 @@ class Room{
 		r = new Room("Rostock Way", "The northern stretch of Rostock Way.");
 		r.setExits("b&r_intersection", "rostock_south", "house3", "park", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("rostock_north",r);
+		
+	//Butchery//
+		r = new Room("Butchery", "The local Butchery is here. South of you is a dirt road. "
+				+ "To the north of you is the enterance to the Butchery.");
+		r.setExits("b_inside", "dirt_road", "bract_street", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("butchery",r);
+		
+	//Butchery Inside//
+		r = new Room("Butchery", "You are at the entrance to the Butchery. "
+				+ "South of you is the exit. There are pigs hanging from the ceiling.");
+		r.setExits("", "butchery", "", "b_storage", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("b_inside",r);
+		
+	//Butchery Storage Room//
+		r = new Room("Butchery", "You are in the Storage Locker for the Butchery."
+				+ "It is a little chilly, but that is probably to preserve the meat.");
+		r.setExits("", "", "b_inside", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("b_storage",r);
+		
+	//Dirt Road//
+		r = new Room("Dirt Road", "You are on the dirt road. to your north is the butchery,"
+				+ " and you can see a corn field to the south.");
+		r.setExits("butchery", "corn_field", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("dirt_road",r);
+		
+	//Corn Field//
+		r = new Room("Corn Field", "You have found yourself in a corn field. "
+				+ "To be honest, the corn is so tall you can't see inside or around it.");
+		r.setExits("dirt_road", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("corn_field",r);
 	
 /* 		//UNCOMMENT THIS FOR DEBUGGING
  
