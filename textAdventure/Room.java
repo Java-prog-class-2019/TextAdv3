@@ -90,8 +90,14 @@ class Room{
 		
 	//Bract Street//
 		r = new Room("Bract Street", "The eastern stretch of Bract Street.");
-		r.setExits("police_station", "", "b&m_intersection", "butchery", "", "");//N,S,W,E,U,D -- put roomList names here
+		r.setExits("police_station", "deli", "b&m_intersection", "butchery", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("bract_street",r);
+		
+	//Deli//
+		r = new Room("Deli", "\"Hello Officer. Is there anything you need today?\" "
+				+ "a man with a beard says.");
+		r.setExits("bract_street", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("deli",r);
 
 	//Bract and Main Intersection//
 		r = new Room("Intersection", "This is the intersection between Bract Street and Main Street.");
@@ -152,6 +158,17 @@ class Room{
 		r = new Room("Intersction", "This is the intersection of Rostock Way and Main Street.");
 		r.setExits("", "house1", "rostock_south", "main_south", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("r&m_intersction",r);
+		
+	//House 1//
+		r = new Room("House", "You are at 204 Rostock and Main. "
+				+ "The front door is south of you.");
+		r.setExits("r&m_intersection", "house1_inside", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("house1",r);
+		
+	//House 1 Inside//
+		r = new Room("House", "Description");
+		r.setExits("house1", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("house1_inside",r);
 		
 	//Rostock Way South//
 		r = new Room("Rostock Way", "The southern stretch of Rostock Way.");
