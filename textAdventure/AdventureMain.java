@@ -23,7 +23,7 @@ public class AdventureMain {
 	String currentRoom;
 	Player player;
 	
-	public static int health = 10;
+	
 	
 	int turns = 0;
 
@@ -121,7 +121,7 @@ public class AdventureMain {
 			}			
 		case "n": case "s": case "w": case "e": case "u": case "d":
 		case "north": case "south": case "west": case "east": case "up": case "down":
-		//	moveToRoom(word1.charAt(0));
+			moveToRoom(word1.charAt(0));
 			break;
 		case "i": case "inventory":
 			lookAtInventory(false);
@@ -159,11 +159,21 @@ public class AdventureMain {
 		System.out.println(roomList.get(currentRoom).getDesc());
 	}
 	void lookAtHealth(boolean showDesc) {
-		System.out.println("\n_.-._. " + "Heath: " + health + " ._.-._");
+		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
 	}
 	void lookAtInventory(boolean showDesc) {
 		//System.out.println("\n_.-._.-" + itemList.get(showDesc) + "-._.-._");
 		//System.out.println(itemList.get(showDesc).getDesc());
+	}
+	
+	void moveToRoom(char dir) {
+		//do whateverroom moving stuff you do
+		//then
+		
+		if (currentRoom == "bakery" || currentRoom == "butchery"){
+			player.health -= 2;
+		}
+	 	
 	}
 	
 }
