@@ -35,12 +35,12 @@ class Room{
 	
 	String getExit(char c) {
 		switch (c) {
-		case 'N': return this.N;
-		case 'E': return this.E;
-		case 'S': return this.S;
-		case 'W': return this.W;
-		case 'U': return this.U;
-		case 'D': return this.D;
+		case 'n': case 'N': return this.N;
+		case 'e': case 'E': return this.E;
+		case 's': case 'S': return this.S;
+		case 'w': case 'W': return this.W;
+		case 'u': case 'U': return this.U;
+		case 'd': case 'D': return this.D;
 		default: return ""; //Should I return some other value to indicate a non-existent direction?
 		}
 	}

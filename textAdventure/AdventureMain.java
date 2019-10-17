@@ -165,12 +165,18 @@ public class AdventureMain {
 		//System.out.println("\n_.-._.-" + itemList.get(showDesc) + "-._.-._");
 		//System.out.println(itemList.get(showDesc).getDesc());
 	}
+	
 	void moveToRoom(char dir) {
+		currentRoom = roomList.get(currentRoom).getExit(dir);
+		
 		//do whateverroom moving stuff you do
 		//then	
 		if (currentRoom == "bakery" || currentRoom == "butchery"){
 			player.health -= 2;
 		}
+		
+		lookAtRoom(true);
+		
 	}
 	void eatItem(boolean showDesc) {
 		//a.healthPoints + player.health = player.health;
