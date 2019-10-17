@@ -184,23 +184,25 @@ public class AdventureMain {
 		//System.out.println(itemList.get(showDesc).getDesc());
 	}
 	
-	//TAKING
-	void takeItem(boolean showDesc) {
-		//How do I add an item to the inventory 
-	}
-	
-	
-	//MOVING
 	void moveToRoom(char dir) {
+		String newRoom = roomList.get(currentRoom).getExit(dir);
+		if (newRoom != "") {	//does this direction work?
+			if (newRoom != currentRoom) {	// is this a new room?
+				currentRoom = newRoom;
+				lookAtRoom(true);
+			}
+		}
+		else {
+			System.out.println("You can't go that way");
+		}
 		//do whateverroom moving stuff you do
 		//then	
 		if (currentRoom == "bakery" || currentRoom == "butchery"){
 			player.health -= 2;
 		}
-		if (currentRoom == "b_storage") {
-			System.out.println("5 dead and wrapped bodies are layed out accross the floor. "
-					+ "\nYou shoulld check to see if the badies are the ones your looking for.");
-		}
+		
+		
+		
 	}
 	
 	
