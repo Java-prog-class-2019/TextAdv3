@@ -166,7 +166,8 @@ class Room{
 		roomList.put("house1",r);
 		
 	//House 1 Inside//
-		r = new Room("House", "Description");
+		r = new Room("House", "You can see the living room and kitchen from the entrance. "
+				+ "Everything seems very clean and well kept.");
 		r.setExits("house1", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("house1_inside",r);
 		
@@ -181,7 +182,8 @@ class Room{
 		roomList.put("house2",r);
 		
 	//House 2 Inside//
-		r = new Room("House", "Description");
+		r = new Room("House", "You can see a the main hallway from the entrance. "
+				+ "You can hear a dog barking from somewhere.");
 		r.setExits("house2", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("house2_inside",r);
 		
