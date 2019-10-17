@@ -138,7 +138,7 @@ public class AdventureMain {
 			//readObject(word2);
 			break;
 		case "eat":
-			//eatItem(word2);
+			eatItem(false);
 			break;
 		case "health":
 			lookAtHealth(false);
@@ -165,15 +165,15 @@ public class AdventureMain {
 		//System.out.println("\n_.-._.-" + itemList.get(showDesc) + "-._.-._");
 		//System.out.println(itemList.get(showDesc).getDesc());
 	}
-	
 	void moveToRoom(char dir) {
 		//do whateverroom moving stuff you do
-		//then
-		
+		//then	
 		if (currentRoom == "bakery" || currentRoom == "butchery"){
 			player.health -= 2;
 		}
-	 	
+	}
+	void eatItem(boolean showDesc) {
+		//a.healthPoints + player.health = player.health;
 	}
 	
 }
