@@ -30,47 +30,47 @@ class Item {
 
 		 a = new Item("Dectective's Badge");
 		itemList.put("Badge",a);
-		//roomList.get("Police Station").items.add("Badge");
+		roomList.get("Police Station").items.add("Badge");
 		
 		a = new Item("Case File");
 		itemList.put("File",a);
-		//roomList.get("Police Station").items.add("File");
+		roomList.get("Police Station").items.add("File");
 		
 		a = new Item("Bagel");
 		a.healthPoints = 2;
 		itemList.put("Bagel",a);
-		//roomList.get("Bakery").items.add("Bagel");
+		roomList.get("Bakery").items.add("Bagel");
 		
 		a = new Item("Muffin");
 		a.healthPoints = 1;
 		itemList.put("Muffin",a);
-		//roomList.get("Bakery").items.add("Muffin");
+		roomList.get("Bakery").items.add("Muffin");
 		
 		a = new Item("Hot Coffee");
 		a.healthPoints = 2;
 		itemList.put("Coffee",a);
-		//roomList.get("Bakery").items.add("Coffee");
+		roomList.get("Bakery").items.add("Coffee");
 		
 		a = new Item("Knife");
 		itemList.put("Knife",a);
-		//roomList.get("Deli").items.add("Knife");
+		roomList.get("Deli").items.add("Knife");
 		
 		a = new Item("Drop of Blood");
 		itemList.put("Blood",a);
-		//roomList.get("Deli").items.add("Blood");
+		roomList.get("Deli").items.add("Blood");
 		
 		a = new Item("Deli Meat");
 		itemList.put("Meat",a);
-		//roomList.get("Deli").items.add("Meat");
+		roomList.get("Deli").items.add("Meat");
 		
 		a = new Item("Loaded Gun");
 		itemList.put("Gun",a);
-		//roomList.get("Police Station").items.add("Gun");
+		roomList.get("Police Station").items.add("Gun");
 		
 		a = new Item("Hot Coffee");
 		a.healthPoints = 2;
 		itemList.put("Coffee",a);
-		//roomList.get("Police Station").items.add("Coffee");
+		roomList.get("Police Station").items.add("Coffee");
 		
 	}
 }
