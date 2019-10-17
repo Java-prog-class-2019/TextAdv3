@@ -31,6 +31,22 @@ public class AdventureMain {
 		new AdventureMain();
 	}
 
+	//ITEM THINGS
+	public void itemKey() {
+		boolean invExist = false;
+		boolean roomExist = true;
+		String description = "it's a key";
+		int miscValue;
+	}
+	
+	public void itemFood() {
+		boolean invExist = false;
+		boolean roomExist = true;
+		String description = "it's food";
+		int healthValue;
+		int stack;
+	}
+	
 	AdventureMain() {
 
 		boolean playing = true;
@@ -55,7 +71,11 @@ public class AdventureMain {
 		// does anything need to be done after the main game loop exits?
 
 	}
-
+	
+	void readObject(String words[]) {
+		System.out.println(description);
+	}
+	
 	void setup() {
 		Room.setupRooms(roomList);
 		// ... more stuff ...
@@ -107,6 +127,8 @@ public class AdventureMain {
 
 		//separate out into word1, word2, etc.
 		String word1 = words[0];
+		String word2 = words[1];
+		//String word3 = words[2];
 
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
@@ -135,7 +157,7 @@ public class AdventureMain {
 			
 		/**** two word commands ****/		
 		case "read":
-			//readObject(word2);
+			readObject(word2);
 			break;
 		case "eat":
 			eatItem(false);
@@ -169,6 +191,11 @@ public class AdventureMain {
 			System.out.println("Sorry, I don't understand that command");
 		}
 		return true;
+	}
+
+	private void readObject(String word2) {
+		// TODO Auto-generated method stub
+		
 	}	
 
 	//LOOKING AT	
@@ -192,6 +219,16 @@ public class AdventureMain {
 	
 	//MOVING
 	void moveToRoom(char dir) {
+		String newRoom = roomList.get(currentRoom).getExit(dir);
+		if (newRoom != "") {	//does this direction work?
+			if (newRoom != currentRoom) {	// is this a new room?
+				currentRoom = newRoom;
+				lookAtRoom(true);
+			}
+		}
+		else {
+			System.out.println("You can't go that way");
+		}
 		//do whateverroom moving stuff you do
 		//then	
 		if (currentRoom == "bakery" || currentRoom == "butchery"){
