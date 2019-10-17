@@ -175,10 +175,31 @@ class Room{
 		r.setExits("park", "house2", "rostock_north", "r&m_intersection", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("rostock_south",r);
 		
+	//House 2//
+		r = new Room("House", "You are at 201 Rostock Way.");
+		r.setExits("rostock_south", "house2_inside", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("house2",r);
+		
+	//House 2 Inside//
+		r = new Room("House", "Description");
+		r.setExits("house2", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("house2_inside",r);
+		
 	//Rostock Way North//
 		r = new Room("Rostock Way", "The northern stretch of Rostock Way.");
 		r.setExits("b&r_intersection", "rostock_south", "house3", "park", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("rostock_north",r);
+		
+	//House of Paroled Inmate//
+		r = new Room("House", "Here is 113 Rostock Way. "
+				+ "A paroled inmate lives here.");
+		r.setExits("", "", "house3_inside", "rostock_north", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("house3",r);
+		
+	//Inside Inamte's House//
+		r = new Room("House", "Description");
+		r.setExits("", "", "west", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("house3_inside",r);
 		
 	//Butchery//
 		r = new Room("Butchery", "The local Butchery is here. South of you is a dirt road. "
