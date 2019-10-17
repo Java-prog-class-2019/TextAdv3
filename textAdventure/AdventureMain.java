@@ -140,8 +140,26 @@ public class AdventureMain {
 		case "eat":
 			eatItem(false);
 			break;
+		case "drink":
+			drinkItem(false);
+			break;
 		case "health":
 			lookAtHealth(false);
+			break;
+		case "call Sation":
+			callStation(false);
+			break;
+		case "inspect knife":
+			inspectKnife(false);
+			break;
+		case "inspect body":
+			inspectBodies(false);
+			break;
+		case "inspect bood":
+			inspectBlood(false);
+			break;
+		case "take":
+			takeItem(false);
 			break;
 			
 		/**** SPECIAL COMMANDS ****/
@@ -153,7 +171,7 @@ public class AdventureMain {
 		return true;
 	}	
 
-	//tons of other methods go here ...		
+	//LOOKING AT	
 	void lookAtRoom(boolean showDesc) {
 		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
 		System.out.println(roomList.get(currentRoom).getDesc());
@@ -165,15 +183,60 @@ public class AdventureMain {
 		//System.out.println("\n_.-._.-" + itemList.get(showDesc) + "-._.-._");
 		//System.out.println(itemList.get(showDesc).getDesc());
 	}
+	
+	//TAKING
+	void takeItem(boolean showDesc) {
+		
+	}
+	
+	
+	//MOVING
 	void moveToRoom(char dir) {
 		//do whateverroom moving stuff you do
 		//then	
 		if (currentRoom == "bakery" || currentRoom == "butchery"){
 			player.health -= 2;
 		}
+		if (currentRoom == "b_storage") {
+			System.out.println("5 dead and wrapped bodies are layed out accross the floor. "
+					+ "\nYou shoulld check to see if the badies are the ones your looking for.");
+		}
 	}
+	
+	
+	//EATING and DRINKING
 	void eatItem(boolean showDesc) {
 		//a.healthPoints + player.health = player.health;
 	}
+	void drinkItem(boolean showDesc) {
+		//a.healthPoints + player.health = player.health;
+	}
+	
+	
+	//CALLING
+	void callStation(boolean showDesc) {
+		System.out.println("The station I working on it now, and wishes you good luck.");
+	}
+	
+	
+	//INSPECTING
+	void inspectKnife(boolean showDesc) {
+		if (currentRoom == "Deli") {
+			System.out.println("This seems important. You've bagged the item for evidence.");
+		}
+	}
+	void inspectBlood(boolean showDesc) {
+		if (currentRoom == "Deli") {
+			System.out.println("This could be the blood of the killer, You've taken a sample.\n"
+					+ " You should call this in for futher inspection. ");
+		}
+	}
+	void inspectBodies(boolean showDesc) {
+		if (currentRoom == "b_storage") {
+			System.out.println("The bodies match the people in your case. You found the missing people,\n"
+					+ " but sadly they are dead. Look for more clues to find the killer.");
+		}
+	}
+		
 	
 }
