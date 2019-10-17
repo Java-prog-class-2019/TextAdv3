@@ -180,13 +180,13 @@ public class AdventureMain {
 		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
 	}
 	void lookAtInventory(boolean showDesc) {
-		//System.out.println("\n_.-._.-" + itemList.get(showDesc) + "-._.-._");
+		System.out.println("\n_.-._.-" + itemList.get(showDesc));
 		//System.out.println(itemList.get(showDesc).getDesc());
 	}
 	
 	//TAKING
 	void takeItem(boolean showDesc) {
-		
+		//How do I add an item to the inventory 
 	}
 	
 	
