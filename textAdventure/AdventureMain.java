@@ -19,33 +19,11 @@ public class AdventureMain {
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
 	
 	
-	/**LIST OF ROOMS**/
-/*	roomList.put("poice_station",Room);
-	roomList.put("butchery",Room);
-	roomList.put("dirt_road",Room);
-	roomList.put("corn_field",Room);
-	roomList.put("house1",Room);
-	roomList.put("house2",Room);
-	roomList.put("house3",Room);
-	roomList.put("house4",Room);
-	roomList.put("bract_street",Room);
-	roomList.put("bm_intersection",Room);
-	roomList.put("main_street",Room);
-	roomList.put("park",Room);
-	roomList.put("bakery",Room);
-	roomList.put("weapon_shop",Room);
-	roomList.put("parole_house",Room);
-	roomList.put("rostock_way",Room);
-	roomList.put("rb_intersection",Room);
-	roomList.put("rm_intersection",Room);
-	roomList.put("main_tunnel",Room);
-	roomList.put("bract_tunnel",Room);
-*/
-	
-	//HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
-	//ArrayList<String> inventory = new ArrayList<String>();
+	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
 	Player player;
+	
+	
 	
 	int turns = 0;
 
@@ -76,7 +54,7 @@ public class AdventureMain {
 
 		setup(); //create all objects needed, including map; print intro. message
 		
-	//	lookAtRoom(true); //display information about the current room
+		lookAtRoom(true); //display information about the current room
 
 		/***** MAIN GAME LOOP *****/
 		while (playing) {
@@ -84,7 +62,6 @@ public class AdventureMain {
 			command = getCommand();
 
 			playing = parseCommand(command);
-
 			//check to see if player has died (in whichever various ways the player can die)
 
 			//check to see if the player has won the game
@@ -100,10 +77,17 @@ public class AdventureMain {
 	}
 	
 	void setup() {
-	//	Room.setupRooms(roomList);
+		Room.setupRooms(roomList);
 		// ... more stuff ...
-		currentRoom = "Police Station";
-		System.out.println("You are at the " + currentRoom);
+		//******Added*********
+		System.out.println("This is, The Oakville Mystery.");
+		System.out.println("\n\t A Town once known as peaceful and happy until one day people just disappear.\n\t"
+		+ " As the best detective around, you’re asked to take on this case. Follow the clues\n\t"
+		+ " around town to find the five missing people and catch the Kidnapper. The town is\n\t"
+		+ " counting on you to restore the happy and calm reputation.\n\t"
+		+ " Dont forget to eat along the way and keep your health up.");
+		//starting room
+		currentRoom = "police_station";
 	}
 
 	String getCommand() {
@@ -131,6 +115,7 @@ public class AdventureMain {
 		text = text.replaceAll("pick up", "pickup");
 		text = text.replaceAll("look at", "lookat");
 		text = text.replaceAll("climb up", "climbup");
+		text = text.replaceAll("show health", "health");
 		
 		String words[] = text.split(" ");
 		
@@ -158,10 +143,10 @@ public class AdventureMain {
 			}			
 		case "n": case "s": case "w": case "e": case "u": case "d":
 		case "north": case "south": case "west": case "east": case "up": case "down":
-		//	moveToRoom(word1.charAt(0));
+			moveToRoom(word1.charAt(0));
 			break;
 		case "i": case "inventory":
-		//	showInventory();
+			lookAtInventory(false);
 			break;
 		case "sleep":
 		//	sleep();			
@@ -175,8 +160,11 @@ public class AdventureMain {
 			readObject(word2);
 			break;
 		case "eat":
-		//	eatItem(word2);
-			break;		
+			eatItem(false);
+			break;
+		case "health":
+			lookAtHealth(false);
+			break;
 			
 		/**** SPECIAL COMMANDS ****/
 		// ...		
@@ -193,5 +181,40 @@ public class AdventureMain {
 	}	
 
 	//tons of other methods go here ...		
+	void lookAtRoom(boolean showDesc) {
+		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
+		System.out.println(roomList.get(currentRoom).getDesc());
+	}
+	void lookAtHealth(boolean showDesc) {
+		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
+	}
+	void lookAtInventory(boolean showDesc) {
+		//System.out.println("\n_.-._.-" + itemList.get(showDesc) + "-._.-._");
+		//System.out.println(itemList.get(showDesc).getDesc());
+	}
+	
+	void moveToRoom(char dir) {
+		String newRoom = roomList.get(currentRoom).getExit(dir);
+		if (newRoom != "") {	//does this direction work?
+			if (newRoom != currentRoom) {	// is this a new room?
+				currentRoom = newRoom;
+				lookAtRoom(true);
+			}
+		}
+		else {
+			System.out.println("You can't go that way");
+		}
+		//do whateverroom moving stuff you do
+		//then	
+		if (currentRoom == "bakery" || currentRoom == "butchery"){
+			player.health -= 2;
+		}
+		
+		
+		
+	}
+	void eatItem(boolean showDesc) {
+		//a.healthPoints + player.health = player.health;
+	}
 	
 }
