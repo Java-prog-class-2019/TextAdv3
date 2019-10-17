@@ -167,15 +167,23 @@ public class AdventureMain {
 	}
 	
 	void moveToRoom(char dir) {
-		currentRoom = roomList.get(currentRoom).getExit(dir);
-		
+		String newRoom = roomList.get(currentRoom).getExit(dir);
+		if (newRoom != "") {	//does this direction work?
+			if (newRoom != currentRoom) {	// is this a new room?
+				currentRoom = newRoom;
+				lookAtRoom(true);
+			}
+		}
+		else {
+			System.out.println("You can't go that way");
+		}
 		//do whateverroom moving stuff you do
 		//then	
 		if (currentRoom == "bakery" || currentRoom == "butchery"){
 			player.health -= 2;
 		}
 		
-		lookAtRoom(true);
+		
 		
 	}
 	void eatItem(boolean showDesc) {
