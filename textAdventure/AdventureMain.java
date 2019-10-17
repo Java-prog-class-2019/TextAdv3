@@ -57,6 +57,7 @@ public class AdventureMain {
 	}
 
 	void setup() {
+		player = new Player();
 		Room.setupRooms(roomList);
 		// ... more stuff ...
 		//******Added*********
@@ -159,7 +160,7 @@ public class AdventureMain {
 			inspectBlood(false);
 			break;
 		case "take":
-			takeItem(false);
+			//takeItem(false);
 			break;
 			
 		/**** SPECIAL COMMANDS ****/
