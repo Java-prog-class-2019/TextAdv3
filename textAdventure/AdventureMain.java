@@ -61,12 +61,13 @@ public class AdventureMain {
 		Room.setupRooms(roomList);
 		// ... more stuff ...
 		//******Added*********
-		System.out.println("This is, The Oakville Mystery.");
-		System.out.println("\n\t A Town once known as peaceful and happy until one day people just disappear.\n\t"
-		+ " As the best detective around, you’re asked to take on this case. Follow the clues\n\t"
-		+ " around town to find the five missing people and catch the Kidnapper. The town is\n\t"
-		+ " counting on you to restore the happy and calm reputation.\n\t"
-		+ " Dont forget to eat along the way and keep your health up.");
+		System.out.println("This is The Oakville Mystery.");
+		System.out.println("\n\t A Town once known to be peaceful and happy is claimed by calimty. A week ago,"
+		+ "\n\t five people went missing from their homes. As the best detective around, you are\n\t"
+		+ " asked to take on this case. Follow the clues around town to find the five missing\n\t"
+		+ " people and catch the Kidnapper. The town is counting on you to restore the happy\n\t"
+		+ " and calm reputation that Oakville was once known for. Dont forget to eat along\n\t"
+		+ " the way and keep your health up. You can't work on an empty stomach!");
 		//starting room
 		currentRoom = "police_station";
 	}
