@@ -109,6 +109,7 @@ public class AdventureMain {
 
 		//separate out into word1, word2, etc.
 		String word1 = words[0];
+		String word2 = words[1];
 
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
@@ -123,7 +124,12 @@ public class AdventureMain {
 			}			
 		case "n": case "s": case "w": case "e": case "u": case "d":
 		case "north": case "south": case "west": case "east": case "up": case "down":
+			//switch (word2) {
+			//case "":
 			moveToRoom(word1.charAt(0));
+			//break;
+			//}
+			
 			break;
 		case "i": case "inventory":
 			lookAtInventory(false);
@@ -155,11 +161,29 @@ public class AdventureMain {
 			inspectKnife(false);
 			break;
 		case "inspect body":
-			inspectBodies(false);
+			inspectBody(false);
 			break;
-		case "inspect bood":
-			inspectBlood(false);
+		case "inspect"://inspect blood
+			switch(word2) {
+			
+			case "blood":
+				inspectBlood(false);
 			break;
+			
+			case "knife":
+				inspectKnife(false);
+			break;
+			
+			case "body":
+				inspectBody(false);
+			break;
+			
+			
+			}
+			break;
+			
+		case "look":
+			lookAtRoom(false);
 		case "take":
 			//takeItem(false);
 			break;
@@ -225,22 +249,35 @@ public class AdventureMain {
 	
 	//INSPECTING
 	void inspectKnife(boolean showDesc) {
-		if (currentRoom == "Deli") {
+		if (currentRoom == "deli") {
 			System.out.println("This seems important. You've bagged the item for evidence.");
+		}
+		else {
+			System.out.println("There are no knives here...");
 		}
 	}
 	void inspectBlood(boolean showDesc) {
-		if (currentRoom == "Deli") {
+		if (currentRoom == "deli") {
 			System.out.println("This could be the blood of the killer, You've taken a sample.\n"
 					+ " You should call this in for futher inspection. ");
 		}
+		else {
+			System.out.println("There is no blood here...");
+		}
 	}
-	void inspectBodies(boolean showDesc) {
+	void inspectBody(boolean showDesc) {
 		if (currentRoom == "b_storage") {
 			System.out.println("The bodies match the people in your case. You found the missing people,\n"
 					+ " but sadly they are dead. Look for more clues to find the killer.");
 		}
+		else {
+			System.out.println("There are no bodies here...");
+		}
 	}
+	
+	//void inspectThings(boolean showDesc) {
+	//	switch (word2)
+	//}
 		
 	
 }
