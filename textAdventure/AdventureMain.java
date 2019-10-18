@@ -62,7 +62,7 @@ public class AdventureMain {
 		// ... more stuff ...
 		//******Added*********
 		System.out.println("This is The Oakville Mystery.");
-		System.out.println("\n\t A Town once known to be peaceful and happy is claimed by calimty. A week ago,"
+		System.out.println("\n\t A Town once known to be peaceful and happy is claimed by calimity. A week ago,"
 		+ "\n\t five people went missing from their homes. As the best detective around, you are\n\t"
 		+ " asked to take on this case. Follow the clues around town to find the five missing\n\t"
 		+ " people and catch the Kidnapper. The town is counting on you to restore the happy\n\t"
