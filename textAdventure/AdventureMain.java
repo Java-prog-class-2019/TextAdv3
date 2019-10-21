@@ -109,12 +109,13 @@ public class AdventureMain {
 
 		//separate out into word1, word2, etc.
 		String word1 = words[0];
-		String word2 = words[1];
+		String word2 = "";
+		if (words.length > 1) word2 =  words[1];
 
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
 		
-		/**** one word commands ****/
+	/**** one word commands ****/
 		case "quit":
 			System.out.print("Do you really want to quit the game? ");
 			String ans = getCommand().toUpperCase();
@@ -124,12 +125,7 @@ public class AdventureMain {
 			}			
 		case "n": case "s": case "w": case "e": case "u": case "d":
 		case "north": case "south": case "west": case "east": case "up": case "down":
-			//switch (word2) {
-			//case "":
 			moveToRoom(word1.charAt(0));
-			//break;
-			//}
-			
 			break;
 		case "i": case "inventory":
 			lookAtInventory(false);
@@ -141,7 +137,7 @@ public class AdventureMain {
 		//	printHelp();
 			break;
 			
-		/**** two word commands ****/		
+	/**** two word commands ****/		
 		case "read":
 			//readObject(word2);
 			break;
