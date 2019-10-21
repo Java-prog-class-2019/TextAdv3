@@ -18,7 +18,9 @@ public class AdventureMain {
 	//ArrayList<Room> roomList = new ArrayList<Room>();
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
 	
-	
+	//inventory
+	HashMap<String, Item> invList = new HashMap<String,Item>(); //list of all item objects
+
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
 	Player player;
@@ -157,12 +159,12 @@ public class AdventureMain {
 		case "call Sation":
 			callStation(false);
 			break;
-		case "inspect knife":
-			inspectKnife(false);
-			break;
-		case "inspect body":
-			inspectBody(false);
-			break;
+		//case "inspect knife":
+			//inspectKnife(false);
+			//break;
+		//case "inspect body":
+		//	inspectBody(false);
+			//break;
 		case "inspect"://inspect blood
 			switch(word2) {
 			
@@ -182,11 +184,34 @@ public class AdventureMain {
 			}
 			break;
 			
-		case "look":
-			lookAtRoom(false);
-		case "take":
-			//takeItem(false);
+	/*	case "take"://inspect blood
+			switch(word2) {
+			
+			case "Badge":
+				//Detective's Badge
+					invList.put("Badge");
+					itemList.remove("Badge");
+					roomList.remove("Badge");
+					System.out.println("You have grabbed: Detective's Badge");
 			break;
+			
+			case "knife":
+				inspectKnife(false);
+			break;
+			
+			case "body":
+				inspectBody(false);
+			break;
+			
+			
+			}
+			break;
+		/*	
+		//case "look":
+		//	lookAtRoom(false);
+		//case "take":
+			//takeItem(false);
+		//	break;
 			
 		/**** SPECIAL COMMANDS ****/
 		// ...		
