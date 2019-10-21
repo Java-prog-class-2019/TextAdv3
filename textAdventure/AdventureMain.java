@@ -18,14 +18,10 @@ public class AdventureMain {
 	//ArrayList<Room> roomList = new ArrayList<Room>();
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
 	
-	//inventory
-	HashMap<String, Item> invList = new HashMap<String,Item>(); //list of all item objects
-
+	
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
 	Player player;
-	
-	String[] inventoryArray = new String[30];
 	
 	
 	
@@ -66,7 +62,7 @@ public class AdventureMain {
 		// ... more stuff ...
 		//******Added*********
 		System.out.println("This is The Oakville Mystery.");
-		System.out.println("\n\t A Town once known to be peaceful and happy is claimed by calimty. A week ago,"
+		System.out.println("\n\t A Town once known to be peaceful and happy is claimed by calimity. A week ago,"
 		+ "\n\t five people went missing from their homes. As the best detective around, you are\n\t"
 		+ " asked to take on this case. Follow the clues around town to find the five missing\n\t"
 		+ " people and catch the Kidnapper. The town is counting on you to restore the happy\n\t"
@@ -113,12 +109,13 @@ public class AdventureMain {
 
 		//separate out into word1, word2, etc.
 		String word1 = words[0];
-		String word2 = words[1];
+		String word2 = "";
+		if (words.length > 1) word2 =  words[1];
 
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
 		
-		/**** one word commands ****/
+	/**** one word commands ****/
 		case "quit":
 			System.out.print("Do you really want to quit the game? ");
 			String ans = getCommand().toUpperCase();
@@ -128,12 +125,7 @@ public class AdventureMain {
 			}			
 		case "n": case "s": case "w": case "e": case "u": case "d":
 		case "north": case "south": case "west": case "east": case "up": case "down":
-			//switch (word2) {
-			//case "":
 			moveToRoom(word1.charAt(0));
-			//break;
-			//}
-			
 			break;
 		case "i": case "inventory":
 			lookAtInventory(false);
@@ -145,7 +137,7 @@ public class AdventureMain {
 		//	printHelp();
 			break;
 			
-		/**** two word commands ****/		
+	/**** two word commands ****/		
 		case "read":
 			//readObject(word2);
 			break;
@@ -161,12 +153,12 @@ public class AdventureMain {
 		case "call Sation":
 			callStation(false);
 			break;
-		//case "inspect knife":
-			//inspectKnife(false);
-			//break;
-		//case "inspect body":
-		//	inspectBody(false);
-			//break;
+		case "inspect knife":
+			inspectKnife(false);
+			break;
+		case "inspect body":
+			inspectBody(false);
+			break;
 		case "inspect"://inspect blood
 			switch(word2) {
 			
@@ -185,35 +177,42 @@ public class AdventureMain {
 			
 			}
 			break;
+
+			/*	case "take"://inspect blood
+					switch(word2) {
+					
+					case "Badge":
+						//Detective's Badge
+							invList.put("Badge");
+							itemList.remove("Badge");
+							roomList.remove("Badge");
+							System.out.println("You have grabbed: Detective's Badge");
+					break;
+					
+					case "knife":
+						inspectKnife(false);
+					break;
+					
+					case "body":
+						inspectBody(false);
+					break;
+					
+					
+					}
+					break;
+				/*	
+				//case "look":
+				//	lookAtRoom(false);
+				//case "take":
+					//takeItem(false);
+				//	break;
+					
 			
-		case "take"://inspect blood
-			switch(word2) {
-			
-			case "Badge":
-				//Detective's Badge
-					inventoryArray[0] == Badge;
-					itemList.remove("Badge");
-					roomList.remove("Badge");
-					System.out.println("You have grabbed: Detective's Badge");
-			break;
-			
-			case "knife":
-				inspectKnife(false);
-			break;
-			
-			case "body":
-				inspectBody(false);
-			break;
-			
-			
-			}
-			break;
-		
-		//case "look":
-		//	lookAtRoom(false);
-		//case "take":
+		case "look":
+			lookAtRoom(false);
+		case "take":
 			//takeItem(false);
-		//	break;
+			break;
 			
 		/**** SPECIAL COMMANDS ****/
 		// ...		
