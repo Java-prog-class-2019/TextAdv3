@@ -31,6 +31,7 @@ class Item {
 		 a = new Item("Detective's Badge");
 		itemList.put("Badge",a);
 		roomList.get("Police Station").items.add("Badge");
+		//inventoryArray[0] == "Badge";
 		
 		a = new Item("Case File");
 		itemList.put("File",a);

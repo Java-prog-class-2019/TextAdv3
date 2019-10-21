@@ -25,6 +25,8 @@ public class AdventureMain {
 	String currentRoom;
 	Player player;
 	
+	String[] inventoryArray = new String[30];
+	
 	
 	
 	int turns = 0;
@@ -184,12 +186,12 @@ public class AdventureMain {
 			}
 			break;
 			
-	/*	case "take"://inspect blood
+		case "take"://inspect blood
 			switch(word2) {
 			
 			case "Badge":
 				//Detective's Badge
-					invList.put("Badge");
+					inventoryArray[0] == Badge;
 					itemList.remove("Badge");
 					roomList.remove("Badge");
 					System.out.println("You have grabbed: Detective's Badge");
@@ -206,7 +208,7 @@ public class AdventureMain {
 			
 			}
 			break;
-		/*	
+		
 		//case "look":
 		//	lookAtRoom(false);
 		//case "take":
