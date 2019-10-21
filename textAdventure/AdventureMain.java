@@ -177,6 +177,36 @@ public class AdventureMain {
 			
 			}
 			break;
+
+			/*	case "take"://inspect blood
+					switch(word2) {
+					
+					case "Badge":
+						//Detective's Badge
+							invList.put("Badge");
+							itemList.remove("Badge");
+							roomList.remove("Badge");
+							System.out.println("You have grabbed: Detective's Badge");
+					break;
+					
+					case "knife":
+						inspectKnife(false);
+					break;
+					
+					case "body":
+						inspectBody(false);
+					break;
+					
+					
+					}
+					break;
+				/*	
+				//case "look":
+				//	lookAtRoom(false);
+				//case "take":
+					//takeItem(false);
+				//	break;
+					
 			
 		case "look":
 			lookAtRoom(false);
