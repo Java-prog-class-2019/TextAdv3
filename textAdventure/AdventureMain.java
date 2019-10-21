@@ -31,22 +31,6 @@ public class AdventureMain {
 		new AdventureMain();
 	}
 
-	//ITEM THINGS
-	public void itemKey() {
-		boolean invExist = false;
-		boolean roomExist = true;
-		String description = "it's a key";
-		int miscValue;
-	}
-	
-	public void itemFood() {
-		boolean invExist = false;
-		boolean roomExist = true;
-		String description = "it's food";
-		int healthValue;
-		int stack;
-	}
-	
 	AdventureMain() {
 
 		boolean playing = true;
@@ -71,21 +55,19 @@ public class AdventureMain {
 		// does anything need to be done after the main game loop exits?
 
 	}
-	
-	void readObject(String words[]) {
-		System.out.println(description);
-	}
-	
+
 	void setup() {
+		player = new Player();
 		Room.setupRooms(roomList);
 		// ... more stuff ...
 		//******Added*********
-		System.out.println("This is, The Oakville Mystery.");
-		System.out.println("\n\t A Town once known as peaceful and happy until one day people just disappear.\n\t"
-		+ " As the best detective around, you’re asked to take on this case. Follow the clues\n\t"
-		+ " around town to find the five missing people and catch the Kidnapper. The town is\n\t"
-		+ " counting on you to restore the happy and calm reputation.\n\t"
-		+ " Dont forget to eat along the way and keep your health up.");
+		System.out.println("This is The Oakville Mystery.");
+		System.out.println("\n\t A Town once known to be peaceful and happy is claimed by calimity. A week ago,"
+		+ "\n\t five people went missing from their homes. As the best detective around, you are\n\t"
+		+ " asked to take on this case. Follow the clues around town to find the five missing\n\t"
+		+ " people and catch the Kidnapper. The town is counting on you to restore the happy\n\t"
+		+ " and calm reputation that Oakville was once known for. Dont forget to eat along\n\t"
+		+ " the way and keep your health up. You can't work on an empty stomach!");
 		//starting room
 		currentRoom = "police_station";
 	}
@@ -127,13 +109,13 @@ public class AdventureMain {
 
 		//separate out into word1, word2, etc.
 		String word1 = words[0];
-		String word2 = words[1];
-		//String word3 = words[2];
+		String word2 = "";
+		if (words.length > 1) word2 =  words[1];
 
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
 		
-		/**** one word commands ****/
+	/**** one word commands ****/
 		case "quit":
 			System.out.print("Do you really want to quit the game? ");
 			String ans = getCommand().toUpperCase();
@@ -155,9 +137,9 @@ public class AdventureMain {
 		//	printHelp();
 			break;
 			
-		/**** two word commands ****/		
+	/**** two word commands ****/		
 		case "read":
-			readObject(word2);
+			//readObject(word2);
 			break;
 		case "eat":
 			eatItem(false);
@@ -175,13 +157,31 @@ public class AdventureMain {
 			inspectKnife(false);
 			break;
 		case "inspect body":
-			inspectBodies(false);
+			inspectBody(false);
 			break;
-		case "inspect bood":
-			inspectBlood(false);
+		case "inspect"://inspect blood
+			switch(word2) {
+			
+			case "blood":
+				inspectBlood(false);
 			break;
+			
+			case "knife":
+				inspectKnife(false);
+			break;
+			
+			case "body":
+				inspectBody(false);
+			break;
+			
+			
+			}
+			break;
+			
+		case "look":
+			lookAtRoom(false);
 		case "take":
-			takeItem(false);
+			//takeItem(false);
 			break;
 			
 		/**** SPECIAL COMMANDS ****/
@@ -191,11 +191,6 @@ public class AdventureMain {
 			System.out.println("Sorry, I don't understand that command");
 		}
 		return true;
-	}
-
-	private void readObject(String word2) {
-		// TODO Auto-generated method stub
-		
 	}	
 
 	//LOOKING AT	
@@ -211,13 +206,6 @@ public class AdventureMain {
 		//System.out.println(itemList.get(showDesc).getDesc());
 	}
 	
-	//TAKING
-	void takeItem(boolean showDesc) {
-		//How do I add an item to the inventory 
-	}
-	
-	
-	//MOVING
 	void moveToRoom(char dir) {
 		String newRoom = roomList.get(currentRoom).getExit(dir);
 		if (newRoom != "") {	//does this direction work?
@@ -234,10 +222,9 @@ public class AdventureMain {
 		if (currentRoom == "bakery" || currentRoom == "butchery"){
 			player.health -= 2;
 		}
-		if (currentRoom == "b_storage") {
-			System.out.println("5 dead and wrapped bodies are layed out accross the floor. "
-					+ "\nYou shoulld check to see if the badies are the ones your looking for.");
-		}
+		
+		
+		
 	}
 	
 	
@@ -258,22 +245,35 @@ public class AdventureMain {
 	
 	//INSPECTING
 	void inspectKnife(boolean showDesc) {
-		if (currentRoom == "Deli") {
+		if (currentRoom == "deli") {
 			System.out.println("This seems important. You've bagged the item for evidence.");
+		}
+		else {
+			System.out.println("There are no knives here...");
 		}
 	}
 	void inspectBlood(boolean showDesc) {
-		if (currentRoom == "Deli") {
+		if (currentRoom == "deli") {
 			System.out.println("This could be the blood of the killer, You've taken a sample.\n"
 					+ " You should call this in for futher inspection. ");
 		}
+		else {
+			System.out.println("There is no blood here...");
+		}
 	}
-	void inspectBodies(boolean showDesc) {
+	void inspectBody(boolean showDesc) {
 		if (currentRoom == "b_storage") {
 			System.out.println("The bodies match the people in your case. You found the missing people,\n"
 					+ " but sadly they are dead. Look for more clues to find the killer.");
 		}
+		else {
+			System.out.println("There are no bodies here...");
+		}
 	}
+	
+	//void inspectThings(boolean showDesc) {
+	//	switch (word2)
+	//}
 		
 	
 }
