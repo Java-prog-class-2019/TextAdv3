@@ -178,14 +178,14 @@ public class AdventureMain {
 			}
 			break;
 
-			/*	case "take"://inspect blood
+			/*	case "take":
 					switch(word2) {
 					
-					case "Badge":
+					case "badge":
 						//Detective's Badge
-							invList.put("Badge");
-							itemList.remove("Badge");
-							roomList.remove("Badge");
+							invList.put("badge");
+							itemList.remove("badge");
+							roomList.remove("badge");
 							System.out.println("You have grabbed: Detective's Badge");
 					break;
 					
@@ -200,7 +200,7 @@ public class AdventureMain {
 					
 					}
 					break;
-				/*	
+				*/	
 				//case "look":
 				//	lookAtRoom(false);
 				//case "take":
