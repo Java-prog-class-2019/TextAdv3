@@ -185,7 +185,7 @@ public class AdventureMain {
 		case "look":
 			lookAtRoom(false);
 		case "take":
-			//takeItem(false);
+			takeItem(word2);
 			break;
 			
 		/**** SPECIAL COMMANDS ****/
@@ -275,6 +275,14 @@ public class AdventureMain {
 		}
 	}
 	
+	
+	void takeItem(String itemname) {
+		System.out.println("you take the " + itemname);
+	}
+	
+	void printHelp() {
+		
+	}
 	
 	//void inspectThings(boolean showDesc) {
 	//	switch (word2)
