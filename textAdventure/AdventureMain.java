@@ -7,8 +7,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
-/* A skeleton program for a text adventure game */
-/* some other parts, like rooms, will be explained in class */
+/*----TO DO----
+ * NPC's
+ * Take Items
+ * Inventory
+ * Help command */
 
 public class AdventureMain {
 
@@ -104,7 +107,8 @@ public class AdventureMain {
 		//P3. remove all instances of "THE"
 		ArrayList<String> wordlist = new ArrayList<String>(Arrays.asList(words));		//array list of words
 		for(int i=0; i< wordlist.size(); i++) {
-			if (wordlist.get(i).equals("the")) wordlist.remove(i--);			
+			if (wordlist.get(i).equals("the")) wordlist.remove(i--);	
+			if (wordlist.get(i).equals("to")) wordlist.remove(i--);
 		}
 
 		//separate out into word1, word2, etc.
@@ -270,6 +274,7 @@ public class AdventureMain {
 			System.out.println("There are no bodies here...");
 		}
 	}
+	
 	
 	//void inspectThings(boolean showDesc) {
 	//	switch (word2)
