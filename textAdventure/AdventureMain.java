@@ -264,7 +264,7 @@ public class AdventureMain {
 	//TALKING 
 	void talking(boolean showDesc) {
 		String ans = getCommand().toUpperCase();
-		if(ans.equals("talk")) {
+		if(currentRoom == "deli") {
 			System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
 					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
 			if(ans.equals("A")) {
