@@ -11,7 +11,8 @@ import java.util.Scanner;
  * NPC's
  * Take Items
  * Inventory
- * Eat and Drink command*/
+ * Eat and Drink command
+ * Call station command*/
 
 public class AdventureMain {
 
@@ -177,29 +178,27 @@ public class AdventureMain {
 			}
 			break;
 
-			/*	case "take"://inspect blood
-					switch(word2) {
-					
-					case "Badge":
-						//Detective's Badge
-							invList.put("Badge");
-							itemList.remove("Badge");
-							roomList.remove("Badge");
-							System.out.println("You have grabbed: Detective's Badge");
-					break;
-					
-					case "knife":
-						inspectKnife(false);
-					break;
-					
-					case "body":
-						inspectBody(false);
-					break;
-					
-					
-					}
-					break;
-				*/
+//			case "take"://inspect blood
+//				switch(word2) {
+//					
+//				case "Badge":
+//					//Detective's Badge
+//					invList.put("Badge");
+//					itemList.remove("Badge");
+//					roomList.remove("Badge");
+//					System.out.println("You have grabbed: Detective's Badge");
+//				break;
+//					
+//				case "knife":
+//					inspectKnife(false);
+//				break;
+//					
+//				case "body":
+//					inspectBody(false);
+//				break;		
+//			}
+//			break;
+			
 					
 			
 		case "look":
