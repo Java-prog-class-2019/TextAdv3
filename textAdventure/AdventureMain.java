@@ -33,15 +33,11 @@ public class AdventureMain {
 
 	//ITEM THINGS
 	public void itemKey() {
-		boolean invExist = false;
-		boolean roomExist = true;
 		String description = "it's a key";
 		int miscValue;
 	}
 	
 	public void itemFood() {
-		boolean invExist = false;
-		boolean roomExist = true;
 		String description = "it's food";
 		int healthValue;
 		int stack;
