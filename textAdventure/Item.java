@@ -28,9 +28,10 @@ class Item {
 		itemList.put("Phone",a);						    //this is the true (hashmap) name of the item. It's never displayed.
 		//roomList.get("path1").items.add("sandwich");	    //and here the item is added to the specific room that you want it in. 
 
-		 a = new Item("Dectective's Badge");
+		 a = new Item("Detective's Badge");
 		itemList.put("Badge",a);
 		roomList.get("Police Station").items.add("Badge");
+		//inventoryArray[0] == "Badge";
 		
 		a = new Item("Case File");
 		itemList.put("File",a);
