@@ -141,6 +141,9 @@ public class AdventureMain {
 		case "read":
 			//readObject(word2);
 			break;
+		case "Talk":
+			talking(false);
+			break;
 		case "eat":
 			eatItem(false);
 			break;
@@ -211,7 +214,8 @@ public class AdventureMain {
 		case "look":
 			lookAtRoom(false);
 		case "take":
-			//takeItem(false);
+			takeItem(false);
+			//readObject(word2);
 			break;
 			
 		/**** SPECIAL COMMANDS ****/
@@ -232,8 +236,8 @@ public class AdventureMain {
 		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
 	}
 	void lookAtInventory(boolean showDesc) {
-		System.out.println("\n_.-._.-" + itemList.get(showDesc));
-		//System.out.println(itemList.get(showDesc).getDesc());
+		System.out.println("\n_.-._.- Inventory -._.-._");
+		System.out.println("\n" + itemList.get(showDesc));
 	}
 	
 	void moveToRoom(char dir) {
@@ -257,6 +261,34 @@ public class AdventureMain {
 		
 	}
 	
+	//TALKING 
+	void talking(boolean showDesc) {
+		String ans = getCommand().toUpperCase();
+		if(ans.equals("talk")) {
+			System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
+					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
+			if(ans.equals("A")) {
+				System.out.println("Hello Detective, what can I help you with? So sad what"
+						+ " happened to those five people.\n ");
+		    }
+			if(ans.equals("B")) {
+		    	System.out.println("Of course! It's on the house **Type: Drink Coffee**");
+		    }
+			
+			System.out.println("Choose either C or D\n C - Is there anything you could "
+					+ "tell me that could help me with my case?\n D - I want a bagel. ");
+			if(ans.equals("C")) {
+				System.out.println("\nNothing noticeable around here but I have noticed"
+						+ " the man at the deli looking a bit suspicious. Maybe talk to"
+						+ " him and take a look around. ");
+			}
+			if(ans.equals("D")) {
+				System.out.println("\nOf course! Its on the house **type: Take Bagel**");
+			}
+			
+		}
+		
+	}
 	
 	//EATING and DRINKING
 	void eatItem(boolean showDesc) {
@@ -301,9 +333,13 @@ public class AdventureMain {
 		}
 	}
 	
-	//void inspectThings(boolean showDesc) {
-	//	switch (word2)
-	//}
+	void takeItem(boolean showDesc) {
+		//System.out.println("the " + word2 + "is now added to inventory.");
+		//inventory.add.word2
+		//how do we check what item they want 
+		//we need to then put it in inventory 
+		//get.word2 = itemList;
+	}
 		
 	
 }
