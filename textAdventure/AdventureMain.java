@@ -231,6 +231,10 @@ public class AdventureMain {
 	void lookAtRoom(boolean showDesc) {
 		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
 		System.out.println(roomList.get(currentRoom).getDesc());
+		if (currentRoom == "deli") {
+			System.out.println("there seems to be a knife in the door way to the staff room,"
+					+ " and a drop of blood int the corner of the room.");
+		}
 	}
 	void lookAtHealth(boolean showDesc) {
 		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
@@ -253,7 +257,7 @@ public class AdventureMain {
 		}
 		//do whateverroom moving stuff you do
 		//then	
-		if (currentRoom == "bakery" || currentRoom == "butchery"){
+		if (currentRoom == "bakery" || currentRoom == "deli"){
 			player.health -= 2;
 		}
 		
@@ -264,7 +268,8 @@ public class AdventureMain {
 	//TALKING 
 	void talking(boolean showDesc) {
 		String ans = getCommand().toUpperCase();
-		if(currentRoom == "deli") {
+		//DELI CONVERSATION 
+		if(currentRoom == "bakery") {
 			System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
 					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
 			if(ans.equals("A")) {
@@ -287,12 +292,24 @@ public class AdventureMain {
 			}
 			
 		}
+		//BAKERY CONVERSATION
+		if(currentRoom == "deli") {
+			System.out.println("You: Hello, Im the leading Detective "
+					+ "in the missing persons case.\n");
+			System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
+					+ " when there's five missing people in town\n");
+			System.out.println("You: Maybe you can help me with that,"
+					+ " have you noticed anthing of interest to te case?\n");
+			System.out.println("Mike: Can't say I have.\n");
+			System.out.println("You: Alright, do you mind if I take a look around?\n");
+			System.out.println("Mike: Fine! Just dont take long, its not good for buisness.");
+		}
 		
 	}
 	
 	//EATING and DRINKING
 	void eatItem(boolean showDesc) {
-		//a.healthPoints + player.health = player.health;
+		//player.health + a.healthPoints = player.health;
 	}
 	void drinkItem(boolean showDesc) {
 		//a.healthPoints + player.health = player.health;
