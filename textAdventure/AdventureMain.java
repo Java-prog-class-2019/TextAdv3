@@ -138,7 +138,7 @@ public class AdventureMain {
 		//	sleep();			
 			break;	
 		case "help":
-		//	printHelp();
+			printHelp();
 			break;
 			
 	/**** two word commands ****/		
@@ -277,11 +277,18 @@ public class AdventureMain {
 	
 	
 	void takeItem(String itemname) {
+		//is the object in the current room?
+		
+		
+		//add it to the inventory
+		
+		//remove it from the room
+		
 		System.out.println("you take the " + itemname);
 	}
 	
 	void printHelp() {
-		
+		System.out.println("HOWDY");
 	}
 	
 	//void inspectThings(boolean showDesc) {
