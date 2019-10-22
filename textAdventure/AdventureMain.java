@@ -11,7 +11,7 @@ import java.util.Scanner;
  * NPC's
  * Take Items
  * Inventory
- * Help command */
+ * Eat and Drink command*/
 
 public class AdventureMain {
 
@@ -133,9 +133,6 @@ public class AdventureMain {
 			break;
 		case "i": case "inventory":
 			lookAtInventory(false);
-			break;
-		case "sleep":
-		//	sleep();			
 			break;	
 		case "help":
 			printHelp();
@@ -154,14 +151,12 @@ public class AdventureMain {
 		case "health":
 			lookAtHealth(false);
 			break;
-		case "call Sation":
+		case "call":
+			switch(word2) {
+			case "station":
 			callStation(false);
-			break;
-		case "inspect knife":
-			inspectKnife(false);
-			break;
-		case "inspect body":
-			inspectBody(false);
+			}
+			
 			break;
 		case "inspect"://inspect blood
 			switch(word2) {
@@ -204,12 +199,7 @@ public class AdventureMain {
 					
 					}
 					break;
-				/*	
-				//case "look":
-				//	lookAtRoom(false);
-				//case "take":
-					//takeItem(false);
-				//	break;
+				*/
 					
 			
 		case "look":
@@ -273,7 +263,7 @@ public class AdventureMain {
 	
 	//CALLING
 	void callStation(boolean showDesc) {
-		System.out.println("The station I working on it now, and wishes you good luck.");
+		System.out.println("The station is working on it now, and wishes you good luck.");
 	}
 	
 	
@@ -317,8 +307,17 @@ public class AdventureMain {
 		System.out.println("you take the " + itemname);
 	}
 	
+	//HELP COMMAND
 	void printHelp() {
-		System.out.println("HOWDY");
+		System.out.println("_.-._.-LIST OF COMMANDS-._.-._\n"
+						 + "*\tquit\n"
+						 + "*\tnorth, east, south, west\n"
+						 + "*\ti, inventory\n"
+						 + "*\tlook\n"
+						 + "*\thealth,\n"
+						 + "*\teat \'item\', drink \'item\'\n"
+						 + "*\tcall station\n"
+						 + "*\tinspect \'item\'");
 	}
 	
 	//void inspectThings(boolean showDesc) {
