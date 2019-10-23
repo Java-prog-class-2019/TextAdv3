@@ -268,7 +268,7 @@ public class AdventureMain {
 	//TALKING 
 	void talking(boolean showDesc) {
 		String ans = getCommand().toUpperCase();
-		//DELI CONVERSATION 
+		//BAKERY CONVERSATION 
 		if(currentRoom == "bakery") {
 			System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
 					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
@@ -292,7 +292,7 @@ public class AdventureMain {
 			}
 			
 		}
-		//BAKERY CONVERSATION
+		//DELI CONVERSATION
 		if(currentRoom == "deli") {
 			System.out.println("You: Hello, Im the leading Detective "
 					+ "in the missing persons case.\n");
@@ -302,7 +302,8 @@ public class AdventureMain {
 					+ " have you noticed anthing of interest to te case?\n");
 			System.out.println("Mike: Can't say I have.\n");
 			System.out.println("You: Alright, do you mind if I take a look around?\n");
-			System.out.println("Mike: Fine! Just dont take long, its not good for buisness.");
+			System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
+			System.out.println("\n\t**type: Look ** ");
 		}
 		
 	}
@@ -334,7 +335,7 @@ public class AdventureMain {
 	void inspectBlood(boolean showDesc) {
 		if (currentRoom == "deli") {
 			System.out.println("This could be the blood of the killer, You've taken a sample.\n"
-					+ " You should call this in for futher inspection. ");
+					+ " You should call this in for futher inspection. **Type: Call in **");
 		}
 		else {
 			System.out.println("There is no blood here...");
