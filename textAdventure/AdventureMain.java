@@ -51,6 +51,11 @@ public class AdventureMain {
 
 			playing = parseCommand(command);
 			//check to see if player has died (in whichever various ways the player can die)
+			if (player.health <= 0) {
+				System.out.println("\n_.-._.YOU DIED._.-._\n\n"
+						+ "You didn't keep your health up! eat and drink things to survive.");
+				System.exit(0);
+			}
 
 			//check to see if the player has won the game
 			
@@ -144,11 +149,36 @@ public class AdventureMain {
 			//readObject(word2);
 			break;
 		case "eat":
-			eatItem(false);
-			break;
+			switch(word2) {
+				case"bagel":
+					//need if statement for whether you have it or not
+					eatBagel(false);
+					break;
+				case"muffin":
+					//need if statement for whether you have it or not
+					eatMuffin(false);
+					break;
+				case"meat":
+					//need if statement for whether you have it or not
+					eatMeat(false);
+					break;
+				default: System.out.println("You can't eat that...");
+			}
+			
+		break;
 		case "drink":
-			drinkItem(false);
-			break;
+			switch(word2) {
+				case"coffee":
+					//need if statement for whether you have it or not
+					drinkCoffee(false);
+				break;
+				case"blood":
+					//need if statement for whether you have it or not
+					drinkBlood(false);
+				break;
+				default: System.out.println("You can't drink that...");
+			}
+		break;
 		case "health":
 			lookAtHealth(false);
 			break;
@@ -252,11 +282,25 @@ public class AdventureMain {
 	
 	
 	//EATING and DRINKING
-	void eatItem(boolean showDesc) {
-		//a.healthPoints + player.health = player.health;
+	void eatBagel(boolean showDesc) {
+		System.out.println("You eat the Bagel.\t+2 health points");
+		player.health = player.health + 2;
 	}
-	void drinkItem(boolean showDesc) {
-		//a.healthPoints + player.health = player.health;
+	void eatMuffin(boolean showDesc) {
+		System.out.println("You eat the Muffin.\t+1 health point");
+		player.health = player.health + 1;
+	}
+	void eatMeat(boolean showDesc) {
+		System.out.println("You eat the Meat. It tastes kind of funny...");
+	}
+	void drinkCoffee(boolean showDesc) {
+		System.out.println("You drink the Coffee.\t+2 health points");
+		player.health = player.health + 2;
+	}
+	void drinkBlood(boolean showDesc) {
+		System.out.println("Erm... You drink the blood? why would you do that??\n"
+				+ "you feel funny.\t\t-5 health points");
+		player.health = player.health - 5;
 	}
 	
 	
