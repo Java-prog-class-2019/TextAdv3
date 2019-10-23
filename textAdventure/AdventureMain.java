@@ -135,7 +135,7 @@ public class AdventureMain {
 		//	sleep();			
 			break;	
 		case "help":
-			printHelp();
+			//printHelp();
 			break;
 			
 	/**** two word commands ****/		
@@ -228,14 +228,6 @@ public class AdventureMain {
 		return true;
 	}	
 
-	//HELP
-	private void printHelp() {
-		System.out.println("\n_.-._. Help ._.-._");
-		System.out.println("\nTo Move: \n North or n \n East  or e \n South "
-				+ "or s \n West  or w \n Up \n down"); 
-		System.out.println("\nTo Take:\n Type take and what you want to take, to add it to inventory and use it later on.");
-		System.out.println("\nOther Commands:\n Health, Eat, Drink, Inspect, Look, talk, and Quit.");
-	}
 
 	//LOOKING AT	
 	void lookAtRoom(boolean showDesc) {
