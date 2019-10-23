@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /*----TO DO----
- * NPC's
+ * NPCs
  * Take Items
  * Inventory
- * Eat and Drink command
+ * Eat and Drink if statements
  * Call station command*/
 
 public class AdventureMain {
@@ -342,7 +342,6 @@ public class AdventureMain {
 	void takeItem(String itemname) {
 		//is the object in the current room?
 		
-		
 		//add it to the inventory
 		
 		//remove it from the room
@@ -361,11 +360,6 @@ public class AdventureMain {
 						 + "*\teat \'item\', drink \'item\'\n"
 						 + "*\tcall station\n"
 						 + "*\tinspect \'item\'");
-	}
+	}	
 	
-	//void inspectThings(boolean showDesc) {
-	//	switch (word2)
-	//}
-		
-	
-}
+}//end of class
