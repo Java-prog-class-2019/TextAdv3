@@ -46,40 +46,40 @@ class Item {
 		//inventoryArray[0] == "Badge";
 		
 		item = new Item("Case File");
-		itemList.put("File",item);
+		itemList.put("file",item);
 		r = roomList.get("a_block");
-				r.items.add("File");
+				r.items.add("file");
 		
 		item = new Item("Bagel");
 		item.healthPoints = 2;
-		itemList.put("Bagel",item);
-		roomList.get("bakery").items.add("Bagel");
+		itemList.put("bagel",item);
+		roomList.get("bakery").items.add("bagel");
 		
 		item = new Item("Muffin");
 		item.healthPoints = 1;
-		itemList.put("Muffin",item);
-		roomList.get("bakery").items.add("Muffin");
+		itemList.put("muffin",item);
+		roomList.get("bakery").items.add("muffin");
 		
 		item = new Item("Hot Coffee");
 		item.healthPoints = 2;
-		itemList.put("Coffee",item);
-		roomList.get("bakery").items.add("Coffee");
+		itemList.put("coffee",item);
+		roomList.get("bakery").items.add("coffee");
 		
 		item = new Item("Knife");
-		itemList.put("Knife",item);
-		roomList.get("deli").items.add("Knife");
+		itemList.put("knife",item);
+		roomList.get("deli").items.add("knife");
 		
 		item = new Item("Drop of Blood");
-		itemList.put("Blood",item);
-		roomList.get("deli").items.add("Blood");
+		itemList.put("blood",item);
+		roomList.get("deli").items.add("blood");
 		
 		item = new Item("Deli Meat");
-		itemList.put("Meat",item);
-		roomList.get("deli").items.add("Meat");
+		itemList.put("meat",item);
+		roomList.get("deli").items.add("meat");
 		
 		item = new Item("Loaded Gun");
-		itemList.put("Gun",item);
-		roomList.get("b_block").items.add("Gun");
+		itemList.put("gun",item);
+		roomList.get("b_block").items.add("gun");
 	//	roomList.get("Police Station").items.
 		
 	//	item = new Item("Hot Coffee");
