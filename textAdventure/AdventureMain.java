@@ -67,7 +67,8 @@ public class AdventureMain {
 		+ " asked to take on this case. Follow the clues around town to find the five missing\n\t"
 		+ " people and catch the Kidnapper. The town is counting on you to restore the happy\n\t"
 		+ " and calm reputation that Oakville was once known for. Dont forget to eat along\n\t"
-		+ " the way and keep your health up. You can't work on an empty stomach!");
+		+ " the way and keep your health up. You can't work on an empty stomach! \n\t"
+		+ " If you need help just type: Help");
 		//starting room
 		currentRoom = "police_station";
 	}
@@ -134,7 +135,7 @@ public class AdventureMain {
 		//	sleep();			
 			break;	
 		case "help":
-		//	printHelp();
+			printHelp();
 			break;
 			
 	/**** two word commands ****/		
@@ -226,6 +227,15 @@ public class AdventureMain {
 		}
 		return true;
 	}	
+
+	//HELP
+	private void printHelp() {
+		System.out.println("\n_.-._. Help ._.-._");
+		System.out.println("\nTo Move: \n North or n \n East  or e \n South "
+				+ "or s \n West  or w \n Up \n down"); 
+		System.out.println("\nTo Take:\n Type take and what you want to take, to add it to inventory and use it later on.");
+		System.out.println("\nOther Commands:\n Health, Eat, Drink, Inspect, Look, talk, and Quit.");
+	}
 
 	//LOOKING AT	
 	void lookAtRoom(boolean showDesc) {
