@@ -29,13 +29,13 @@ class Item {
 		//roomList.get("path1").items.add("sandwich");	    //and here the item is added to the specific room that you want it in. 
 
 		item = new Item("Detective's Badge");
-		itemList.put("Badge",item);
+		itemList.put("badge",item);
 		
 		//roomList.get("a_block").items.add("Badge");
 		
 		Room r = roomList.get("a_block");
 		
-		r.items.add("Badge");
+		r.items.add("badge");
 		
 
 		for (String s  : r.items) {
@@ -47,39 +47,39 @@ class Item {
 		
 		item = new Item("Case File");
 		itemList.put("File",item);
-		r = roomList.get("Police Station");
+		r = roomList.get("a_block");
 				r.items.add("File");
 		
 		item = new Item("Bagel");
 		item.healthPoints = 2;
 		itemList.put("Bagel",item);
-		roomList.get("Bakery").items.add("Bagel");
+		roomList.get("bakery").items.add("Bagel");
 		
 		item = new Item("Muffin");
 		item.healthPoints = 1;
 		itemList.put("Muffin",item);
-		roomList.get("Bakery").items.add("Muffin");
+		roomList.get("bakery").items.add("Muffin");
 		
 		item = new Item("Hot Coffee");
 		item.healthPoints = 2;
 		itemList.put("Coffee",item);
-		roomList.get("Bakery").items.add("Coffee");
+		roomList.get("bakery").items.add("Coffee");
 		
 		item = new Item("Knife");
 		itemList.put("Knife",item);
-		roomList.get("Deli").items.add("Knife");
+		roomList.get("deli").items.add("Knife");
 		
 		item = new Item("Drop of Blood");
 		itemList.put("Blood",item);
-		roomList.get("Deli").items.add("Blood");
+		roomList.get("deli").items.add("Blood");
 		
 		item = new Item("Deli Meat");
 		itemList.put("Meat",item);
-		roomList.get("Deli").items.add("Meat");
+		roomList.get("deli").items.add("Meat");
 		
 		item = new Item("Loaded Gun");
 		itemList.put("Gun",item);
-		roomList.get("Police Station").items.add("Gun");
+		roomList.get("b_block").items.add("Gun");
 	//	roomList.get("Police Station").items.
 		
 	//	item = new Item("Hot Coffee");
