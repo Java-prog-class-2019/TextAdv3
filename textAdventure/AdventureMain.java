@@ -22,6 +22,7 @@ public class AdventureMain {
 	//ArrayList<Room> roomList = new ArrayList<Room>();
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
 	
+	HashMap<String, Item> inventoryList = new HashMap<String,Item>(); //list of all item objects
 	
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
@@ -68,6 +69,7 @@ public class AdventureMain {
 	void setup() {
 		player = new Player();
 		Room.setupRooms(roomList);
+		Item.setUpItems(itemList, roomList);
 		// ... more stuff ...
 		//******Added*********
 		System.out.println("This is The Oakville Mystery.");
@@ -80,6 +82,7 @@ public class AdventureMain {
 		//starting room
 		currentRoom = "police_station";
 	}
+
 
 	String getCommand() {
 		Scanner sc = new Scanner(System.in);		
@@ -206,30 +209,7 @@ public class AdventureMain {
 			
 			
 			}
-			break;
-
-//			case "take"://inspect blood
-//				switch(word2) {
-//					
-//				case "Badge":
-//					//Detective's Badge
-//					invList.put("Badge");
-//					itemList.remove("Badge");
-//					roomList.remove("Badge");
-//					System.out.println("You have grabbed: Detective's Badge");
-//				break;
-//					
-//				case "knife":
-//					inspectKnife(false);
-//				break;
-//					
-//				case "body":
-//					inspectBody(false);
-//				break;		
-//			}
-//			break;
-			
-					
+			break;				
 			
 		case "look":
 			lookAtRoom(false);
@@ -256,7 +236,7 @@ public class AdventureMain {
 	}
 	void lookAtInventory(boolean showDesc) {
 		System.out.println("\n_.-._.-" + itemList.get(showDesc));
-		//System.out.println(itemList.get(showDesc).getDesc());
+		System.out.println(inventoryList.get(showDesc));
 	}
 	
 	void moveToRoom(char dir) {
@@ -339,14 +319,37 @@ public class AdventureMain {
 	}
 	
 	
-	void takeItem(String itemname) {
+	void takeItem(String word2) {
 		//is the object in the current room?
+//		for (int i = 0; i < roomList.get(currentRoom).items.size(); i++) {
+//			String itemname = roomList.get(currentRoom).items.get(i);
+//			if (itemname.equals(word2)) {
+//				roomList.get(currentRoom).items.remove(word2);
+//			}
+//		}
 		
-		//add it to the inventory
+		//DEBUG: list all items in room
+		System.out.println(currentRoom);
+		for(String s: roomList.get(currentRoom).items) {
+			System.out.println("> " + s);
+		}
 		
-		//remove it from the room
-		
-		System.out.println("you take the " + itemname);
+		if(roomList.get(currentRoom).items.contains(word2)) {
+			//if it is, remove it from the room
+			roomList.get(currentRoom).items.remove(word2);
+			//place it in inventory
+			
+			//get the item object.
+			Item item = itemList.get(word2); //do we need to check to see if it is in itemlist?
+						//no. Every created item should be in here.
+			//add it to the inventory
+			inventoryList.put(word2,item);
+			
+			System.out.println("you take the " + word2);
+		}
+		else {
+			System.out.println("sorry, you can't take the " + word2);
+		}
 	}
 	
 	//HELP COMMAND

@@ -23,51 +23,69 @@ class Item {
 
 	static void setUpItems(HashMap<String,Item> itemList, HashMap<String,Room> roomList) {
 		
-		Item a = new Item("Your Phone");
+		Item item = new Item("Your Phone");
 		//z.descrRoom = "there is a shiny object near by";	//this is displayed along with the room description when you look at the room.
-		itemList.put("Phone",a);						    //this is the true (hashmap) name of the item. It's never displayed.
+		itemList.put("Phone",item);						    //this is the true (hashmap) name of the item. It's never displayed.
 		//roomList.get("path1").items.add("sandwich");	    //and here the item is added to the specific room that you want it in. 
 
-		 a = new Item("Detective's Badge");
-		itemList.put("badge",a);
-		roomList.get("a_block").items.add("Badge");
+		item = new Item("Detective's Badge");
+		itemList.put("Badge",item);
+		
+		//roomList.get("a_block").items.add("Badge");
+		
+		Room r = roomList.get("a_block");
+		
+		r.items.add("Badge");
+		
+
+		for (String s  : r.items) {
+			System.out.println("--- " + s);
+		}
+		
+		
 		//inventoryArray[0] == "Badge";
 		
-		a = new Item("Case File");
-		itemList.put("file",a);
-		roomList.get("police_station").items.add("File");
+		item = new Item("Case File");
+		itemList.put("File",item);
+		r = roomList.get("Police Station");
+				r.items.add("File");
 		
-		a = new Item("Bagel");
-		itemList.put("bagel",a);
-		roomList.get("bakery").items.add("Bagel");
+		item = new Item("Bagel");
+		item.healthPoints = 2;
+		itemList.put("Bagel",item);
+		roomList.get("Bakery").items.add("Bagel");
 		
-		a = new Item("Muffin");
-		itemList.put("muffin",a);
-		roomList.get("bakery").items.add("Muffin");
+		item = new Item("Muffin");
+		item.healthPoints = 1;
+		itemList.put("Muffin",item);
+		roomList.get("Bakery").items.add("Muffin");
 		
-		a = new Item("Hot Coffee");
-		itemList.put("coffee",a);
-		roomList.get("bakery").items.add("Coffee");
+		item = new Item("Hot Coffee");
+		item.healthPoints = 2;
+		itemList.put("Coffee",item);
+		roomList.get("Bakery").items.add("Coffee");
 		
-		a = new Item("knife");
-		itemList.put("Knife",a);
-		roomList.get("deli").items.add("Knife");
+		item = new Item("Knife");
+		itemList.put("Knife",item);
+		roomList.get("Deli").items.add("Knife");
 		
-		a = new Item("Drop of Blood");
-		itemList.put("blood",a);
-		roomList.get("deli").items.add("Blood");
+		item = new Item("Drop of Blood");
+		itemList.put("Blood",item);
+		roomList.get("Deli").items.add("Blood");
 		
-		a = new Item("Deli Meat");
-		itemList.put("meat",a);
-		roomList.get("deli").items.add("Meat");
+		item = new Item("Deli Meat");
+		itemList.put("Meat",item);
+		roomList.get("Deli").items.add("Meat");
 		
-		a = new Item("Loaded Gun");
-		itemList.put("gun",a);
-		roomList.get("b_block").items.add("Gun");
+		item = new Item("Loaded Gun");
+		itemList.put("Gun",item);
+		roomList.get("Police Station").items.add("Gun");
+	//	roomList.get("Police Station").items.
 		
-		a = new Item("Hot Coffee");
-		itemList.put("coffee",a);
-		roomList.get("a_block").items.add("Coffee");
+	//	item = new Item("Hot Coffee");
+	//	item.healthPoints = 2;
+	//	itemList.put("Coffee",item);
+	//	roomList.get("Police Station").items.add("Coffee");
 		
 	}
 }
