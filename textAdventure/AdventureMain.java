@@ -377,7 +377,7 @@ public class AdventureMain {
 		}
 	}
 	void shootItem(String word2) {	
-		if(roomList.get(currentRoom).items.contains(word2)) {
+		if(roomList.get(currentRoom).items.contains(word2) && inventoryList.contains("gun")) {
 			//if it is, remove it from the room
 			roomList.get(currentRoom).items.remove(word2);
 			
