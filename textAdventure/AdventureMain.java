@@ -217,6 +217,13 @@ public class AdventureMain {
 			takeItem(word2);
 			break;
 			
+		case "shoot":
+			shootItem(word2);
+			break;
+//		case "show":
+//			showItem(word2);
+//			break;
+			
 		/**** SPECIAL COMMANDS ****/
 		// ...		
 
@@ -352,6 +359,29 @@ public class AdventureMain {
 			System.out.println("sorry, you can't take the " + word2);
 		}
 	}
+	void shootItem(String word2) {	
+		if(roomList.get(currentRoom).items.contains(word2)) {
+			//if it is, remove it from the room
+			roomList.get(currentRoom).items.remove(word2);
+			
+			System.out.println("you shoot the " + word2 + ", it's now broken... why did you do that.");
+		}
+		else {
+			System.out.println("sorry, you can't shoot the " + word2);
+		}
+	}
+	
+//	void showItem(String word2) {	
+//		if(inventoryList.contains(word2)) {
+//			//if it is, remove it from the room
+//			roomList.get(currentRoom).items.remove(word2);
+//			
+//			System.out.println("you shoot the " + word2 + ", it's now broken... why did you do that.");
+//		}
+//		else {
+//			System.out.println("sorry, you don't have the police badge.\nTry checking the police station. " + word2);
+//		}
+//	}
 	
 	//HELP COMMAND
 	void printHelp() {

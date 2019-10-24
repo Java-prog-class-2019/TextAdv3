@@ -77,6 +77,12 @@ class Item {
 		itemList.put("meat",item);
 		roomList.get("deli").items.add("meat");
 		
+		item = new Item("Pigs");
+		itemList.put("pigs",item);
+		roomList.get("b_inside").items.add("pigs");
+		
+		
+		
 		item = new Item("Loaded Gun");
 		itemList.put("gun",item);
 		roomList.get("b_block").items.add("gun");
