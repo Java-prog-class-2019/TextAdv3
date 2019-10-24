@@ -78,6 +78,7 @@ public class AdventureMain {
 		String text = sc.nextLine();
 		if (text.length() == 0) text = "qwerty"; //default command
 		//sc.close();
+		text = text.toLowerCase().trim();
 		return text;
 	}
 
@@ -85,12 +86,7 @@ public class AdventureMain {
 	boolean parseCommand(String text) {
 
 		/***** PREPROCESSING *****/
-		//P1. 
-		text = text.toLowerCase().trim();	//the complete string BEFORE parsing
 		
-
-		//handle situation where no words entered ...
-
 		
 		//P2. word replacement
 		text = text.replaceAll(" into ", " in ");
@@ -142,8 +138,8 @@ public class AdventureMain {
 		case "read":
 			//readObject(word2);
 			break;
-		case "Talk":
-			talking(false);
+		case "talk":
+			talking();
 			break;
 		case "eat":
 			eatItem(false);
@@ -268,44 +264,73 @@ public class AdventureMain {
 	}
 	
 	//TALKING 
-	void talking(boolean showDesc) {
-		String ans = getCommand().toUpperCase();
+	void talking() {
+		
+		
 		//BAKERY CONVERSATION 
 		if(currentRoom == "bakery") {
-			System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
-					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
-			if(ans.equals("A")) {
-				System.out.println("Hello Detective, what can I help you with? So sad what"
-						+ " happened to those five people.\n ");
-		    }
-			if(ans.equals("B")) {
-		    	System.out.println("Of course! It's on the house **Type: Drink Coffee**");
-		    }
-			
-			System.out.println("Choose either C or D\n C - Is there anything you could "
-					+ "tell me that could help me with my case?\n D - I want a bagel. ");
-			if(ans.equals("C")) {
-				System.out.println("\nNothing noticeable around here but I have noticed"
-						+ " the man at the deli looking a bit suspicious. Maybe talk to"
-						+ " him and take a look around. ");
-			}
-			if(ans.equals("D")) {
-				System.out.println("\nOf course! Its on the house **type: Take Bagel**");
-			}
-			
+			System.out.println("Chat with the baker:");
+			//while(true) {
+				
+				System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
+						+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
+				String ans = getCommand();
+				if(ans.equals("a")) {
+					System.out.println("Hello Detective, what can I help you with? So sad what"
+							+ " happened to those five people.\n ");
+			    }
+				if(ans.equals("b")) {
+			    	System.out.println("Of course! It's on the house **Type: Drink Coffee**");
+			    	return;	
+			    }
+				
+				System.out.println("Choose either X or Y\n X - Is there anything you could "
+						+ "tell me that could help me with my case?\n Y - I want a bagel. ");
+				if(ans.equals("x")) {
+					System.out.println("\nNothing noticeable around here but I have noticed"
+							+ " the man at the deli looking a bit suspicious. Maybe talk to"
+							+ " him and take a look around. ");
+					return; //conversation ends
+				}
+				if(ans.equals("y")) {
+					System.out.println("\nOf course! Its on the house **type: Take Bagel**");
+				}
+				
+//				System.out.println("Bye. Thanksforchatting");
+//				return;
+			//}
 		}
 		//DELI CONVERSATION
 		if(currentRoom == "deli") {
+			
 			System.out.println("You: Hello, Im the leading Detective "
-					+ "in the missing persons case.\n");
-			System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
+					+ "in the missing persons case.  **Press Enter: to see more of the conversation.**\n ");
+			String ans = getCommand();
+			if(ans.equals("")) System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
 					+ " when there's five missing people in town\n");
-			System.out.println("You: Maybe you can help me with that,"
+			if(ans.equals(""))System.out.println("You: Maybe you can help me with that,"
 					+ " have you noticed anthing of interest to te case?\n");
-			System.out.println("Mike: Can't say I have.\n");
-			System.out.println("You: Alright, do you mind if I take a look around?\n");
-			System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
-			System.out.println("\n\t**type: Look ** ");
+			if(ans.equals(""))System.out.println("Mike: Can't say I have.\n");
+			ans = getCommand();
+			if(ans.equals(""))System.out.println("You: Alright, do you mind if I take a look around?\n");
+			else return;
+			ans = getCommand();
+			if(ans.equals(""))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
+			if(ans.equals(""))System.out.println("\n\t**type: Look ** ");
+		}
+		//House 1 Conversation 
+		if(currentRoom == "house1_inside") {
+		System.out.println("Mrs. Johnston: Hello? Can I help you?\n");
+		String ans = getCommand();
+		if(ans.equals(""))System.out.println("You: Sorry, the door was open. I’m The detective in the missing persons case, "
+		+ "and was wondering\n if you had any information that could"
+		+ "help. I understand that your daughter was one of the missing people.\n");
+		if(ans.equals(""))System.out.println("Mrs. Johnston: Yes, yes do you have any information for me first?\n");
+		if(ans.equals(""))System.out.println("You: Well, I’m working on it. Where was the last time you saw your daughter?\n");
+		if(ans.equals(""))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
+		if(ans.equals(""))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
+		if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
+		if(ans.equals(""))System.out.println("You: thank you for your time, i’ll let you knows soon as I find out more. \n");
 		}
 		
 	}
