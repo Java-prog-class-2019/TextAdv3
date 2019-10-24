@@ -405,7 +405,7 @@ public class AdventureMain {
 			//if it is, remove it from the room
 			
 			roomList.get(currentRoom).items.add(word2);
-			inventoryList.contains(word2);
+			inventoryList.remove(word2);
 			
 			System.out.println("you drop the " + word2);
 		}
