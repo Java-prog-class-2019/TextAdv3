@@ -235,8 +235,9 @@ public class AdventureMain {
 		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
 	}
 	void lookAtInventory(boolean showDesc) {
-		System.out.println("\n_.-._.-" + itemList.get(showDesc));
-		System.out.println(inventoryList.get(showDesc));
+		//System.out.println("\n_.-._.-" + itemList.get(showDesc));
+		//System.out.println(inventoryList.get(showDesc));
+		System.out.println(inventoryList);
 	}
 	
 	void moveToRoom(char dir) {
