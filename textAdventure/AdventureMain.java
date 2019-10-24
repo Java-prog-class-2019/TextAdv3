@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 /*----TO DO----
  * NPCs
- * Inventory
- * Eat and Drink if statements
  * Call station command*/
 
 public class AdventureMain {
