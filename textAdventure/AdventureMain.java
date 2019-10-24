@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 /*----TO DO----
  * NPCs
- * Take Items
  * Inventory
  * Eat and Drink if statements
  * Call station command*/
@@ -22,7 +21,8 @@ public class AdventureMain {
 	//ArrayList<Room> roomList = new ArrayList<Room>();
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
 	
-	HashMap<String, Item> inventoryList = new HashMap<String,Item>(); //list of all item objects
+//	HashMap<String, Item> inventoryList = new HashMap<String,Item>(); //list of all item objects
+	ArrayList <String>inventoryList = new ArrayList <String>();
 	
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
@@ -237,7 +237,7 @@ public class AdventureMain {
 	void lookAtInventory(boolean showDesc) {
 		//System.out.println("\n_.-._.-" + itemList.get(showDesc));
 		//System.out.println(inventoryList.get(showDesc));
-		System.out.println(inventoryList);
+		System.out.println("INVENTORY " + inventoryList);
 	}
 	
 	void moveToRoom(char dir) {
@@ -264,24 +264,39 @@ public class AdventureMain {
 	
 	//EATING and DRINKING
 	void eatBagel(boolean showDesc) {
-		System.out.println("You eat the Bagel.\t+2 health points");
-		player.health = player.health + 2;
+		if (inventoryList.contains("bagel")) {
+			System.out.println("You eat the Bagel.\t+2 health points");
+			player.health = player.health + 2;
+		} else System.out.println("You don't have a bagel...");
+		
 	}
 	void eatMuffin(boolean showDesc) {
-		System.out.println("You eat the Muffin.\t+1 health point");
-		player.health = player.health + 1;
+		if (inventoryList.contains("muffin")) { 
+			System.out.println("You eat the Muffin.\t+1 health point");
+			player.health = player.health + 1;
+		} else System.out.println("You don't have a muffin...");
+		
 	}
 	void eatMeat(boolean showDesc) {
-		System.out.println("You eat the Meat. It tastes kind of funny...");
+		if (inventoryList.contains("meat")) {
+			System.out.println("You eat the Meat. It tastes kind of funny...");
+		} else System.out.println("You don't have any meat...");
+		
 	}
 	void drinkCoffee(boolean showDesc) {
-		System.out.println("You drink the Coffee.\t+2 health points");
-		player.health = player.health + 2;
+		if (inventoryList.contains("coffee")) {
+			System.out.println("You drink the Coffee.\t+2 health points");
+			player.health = player.health + 2;
+		} else System.out.println("You don't have any coffee...");
+		
 	}
 	void drinkBlood(boolean showDesc) {
-		System.out.println("Erm... You drink the blood? why would you do that??\n"
-				+ "you feel funny.\t\t-5 health points");
-		player.health = player.health - 5;
+		if (inventoryList.contains("blood")) {
+			System.out.println("Erm... You drink the blood? why would you do that??\n"
+					+ "you feel funny.\t\t-5 health points");
+			player.health = player.health - 5;
+		} else System.out.println("You don't have any blood. Why would you drink it anyway?!?");
+		
 	}
 	
 	
@@ -319,7 +334,7 @@ public class AdventureMain {
 		}
 	}
 	
-	
+	//TAKE
 	void takeItem(String word2) {
 		//is the object in the current room?
 //		for (int i = 0; i < roomList.get(currentRoom).items.size(); i++) {
@@ -344,7 +359,8 @@ public class AdventureMain {
 			Item item = itemList.get(word2); //do we need to check to see if it is in itemlist?
 						//no. Every created item should be in here.
 			//add it to the inventory
-			inventoryList.put(word2,item);
+//			inventoryList.put(word2,item);
+			inventoryList.add(word2);
 			
 			System.out.println("you take the " + word2);
 		}
