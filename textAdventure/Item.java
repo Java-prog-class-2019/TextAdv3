@@ -55,6 +55,11 @@ class Item {
 		itemList.put("bagel",item);
 		roomList.get("bakery").items.add("bagel");
 		
+		item = new Item("Corn Cob");
+		item.healthPoints = 1;
+		itemList.put("corn",item);
+		roomList.get("corn_field").items.add("corn");
+		
 		item = new Item("Muffin");
 		item.healthPoints = 1;
 		itemList.put("muffin",item);
