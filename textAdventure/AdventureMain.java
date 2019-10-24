@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 /*----TO DO----
  * NPCs
+ * remove the item when ingested
  * Call station command*/
 
 public class AdventureMain {
