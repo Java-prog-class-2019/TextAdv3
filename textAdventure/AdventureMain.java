@@ -186,7 +186,7 @@ public class AdventureMain {
 		case "call":
 			switch(word2) {
 			case "station":
-			callStation(false);
+				callStation(false);
 			}
 			
 			break;
@@ -218,9 +218,12 @@ public class AdventureMain {
 		case "shoot":
 			shootItem(word2);
 			break;
-//		case "show":
-//			showItem(word2);
-//			break;
+		case "show":
+			showItem(word2);
+			break;
+		case "drop":
+			dropItem(word2);
+			break;
 			
 		/**** SPECIAL COMMANDS ****/
 		// ...		
@@ -385,17 +388,31 @@ public class AdventureMain {
 		}
 	}
 	
-//	void showItem(String word2) {	
-//		if(inventoryList.contains(word2)) {
-//			//if it is, remove it from the room
-//			roomList.get(currentRoom).items.remove(word2);
-//			
-//			System.out.println("you shoot the " + word2 + ", it's now broken... why did you do that.");
-//		}
-//		else {
-//			System.out.println("sorry, you don't have the police badge.\nTry checking the police station. " + word2);
-//		}
-//	}
+	void showItem(String word2) {	
+		if(inventoryList.contains(word2)) {
+			//if it is, remove it from the room
+			roomList.get(currentRoom).items.remove(word2);
+			
+			System.out.println("you shoot the " + word2 + ", it's now broken... why did you do that.");
+		}
+		else {
+			System.out.println("sorry, you don't have the police badge.\nTry checking the police station. " + word2);
+		}
+	}
+	
+	void dropItem(String word2) {	
+		if(inventoryList.contains(word2)) {
+			//if it is, remove it from the room
+			
+			roomList.get(currentRoom).items.add(word2);
+			inventoryList.contains(word2);
+			
+			System.out.println("you drop the " + word2);
+		}
+		else {
+			System.out.println("sorry, you don't have that. " + word2);
+		}
+	}
 	
 	//HELP COMMAND
 	void printHelp() {
