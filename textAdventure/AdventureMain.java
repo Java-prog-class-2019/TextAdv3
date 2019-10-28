@@ -320,17 +320,26 @@ public class AdventureMain {
 		}
 		//House 1 Conversation 
 		if(currentRoom == "house1_inside") {
-		System.out.println("Mrs. Johnston: Hello? Can I help you?\n");
-		String ans = getCommand();
-		if(ans.equals(""))System.out.println("You: Sorry, the door was open. I’m The detective in the missing persons case, "
-		+ "and was wondering\n if you had any information that could"
-		+ "help. I understand that your daughter was one of the missing people.\n");
-		if(ans.equals(""))System.out.println("Mrs. Johnston: Yes, yes do you have any information for me first?\n");
-		if(ans.equals(""))System.out.println("You: Well, I’m working on it. Where was the last time you saw your daughter?\n");
-		if(ans.equals(""))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
-		if(ans.equals(""))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
-		if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
-		if(ans.equals(""))System.out.println("You: thank you for your time, i’ll let you knows soon as I find out more. \n");
+			System.out.println("Mrs. Johnston: Hello? Can I help you?\n");
+			String ans = getCommand();
+			if(ans.equals(""))System.out.println("You: Sorry, the door was open. I’m The detective in the missing persons case, "
+					+ "and was wondering\n if you had any information that could"
+					+ "help. I understand that your daughter was one of the missing people.\n");
+			if(ans.equals(""))System.out.println("Mrs. Johnston: Yes, yes do you have any information for me first?\n");
+			if(ans.equals(""))System.out.println("You: Well, I’m working on it. Where was the last time you saw your daughter?\n");
+			if(ans.equals(""))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
+			if(ans.equals(""))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
+			if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
+			if(ans.equals(""))System.out.println("You: thank you for your time, i’ll let you knows soon as I find out more. \n");
+		}
+		//House 2 Converation 
+		if(currentRoom == "house2_inside") {
+			System.out.println("No one seems to be home. You should leave the house.");	
+		
+		}
+		//House 3 Conversation
+		if(currentRoom == "house3_inside") {
+			
 		}
 		
 	}
