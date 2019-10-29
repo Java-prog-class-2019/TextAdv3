@@ -62,7 +62,6 @@ public class AdventureMain {
 			}
 
 			//check to see if the player has won the game
-			
 		}
 
 		// does anything need to be done after the main game loop exits?
@@ -243,6 +242,11 @@ public class AdventureMain {
 	void lookAtRoom(boolean showDesc) {
 		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
 		System.out.println(roomList.get(currentRoom).getDesc());
+		Room r = roomList.get(currentRoom);
+		System.out.println("items in the room: ");
+		for (String s  : r.items) {
+			System.out.println("> " + s);
+		}
 	}
 	void lookAtHealth(boolean showDesc) {
 		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
@@ -374,10 +378,10 @@ public class AdventureMain {
 //		}
 		
 		//DEBUG: list all items in room
-		System.out.println(currentRoom);
-		for(String s: roomList.get(currentRoom).items) {
-			System.out.println("> " + s);
-		}
+//		System.out.println(currentRoom);
+//		for(String s: roomList.get(currentRoom).items) {
+//			System.out.println("> " + s);
+//		}
 		
 		if(roomList.get(currentRoom).items.contains(word2)) {
 			//if it is, remove it from the room
