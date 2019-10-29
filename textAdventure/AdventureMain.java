@@ -209,7 +209,7 @@ public class AdventureMain {
 			case "body":
 				inspectBody(false);
 			break;
-			
+			default: System.out.println("You can't inspect that any further...");
 			
 			}
 			break;				
@@ -315,23 +315,39 @@ public class AdventureMain {
 	
 	//CALLING
 	void callStation(boolean showDesc) {
-		System.out.println("The station is working on it now, and wishes you good luck.");
+		if (inventoryList.contains("blood")) {
+			System.out.println("Our team says that the blood seems to be from a pig.\n");
+		}
+		if (inventoryList.contains("knife")) {
+			System.out.println("Our team thinks that this could be significant to the case.\n");
+		}
+		else System.out.println("The team wishes you luck on your case, detective!");
+//		if (inventoryList.contains("THINGY")) {
+//	
+//		}
+
 	}
 	
 	
 	//INSPECTING
 	void inspectKnife(boolean showDesc) {
-		if (currentRoom == "deli") {
+		if (currentRoom == "deli" && roomList.get(currentRoom).items.contains("knife")) {
 			System.out.println("This seems important. You've bagged the item for evidence.");
+			
+			inventoryList.add("knife");
+			roomList.get(currentRoom).items.remove("knife");
 		}
 		else {
 			System.out.println("There are no knives here...");
 		}
 	}
 	void inspectBlood(boolean showDesc) {
-		if (currentRoom == "deli") {
+		if (currentRoom == "deli" && roomList.get(currentRoom).items.contains("blood")) {
 			System.out.println("This could be the blood of the killer, You've taken a sample.\n"
 					+ " You should call this in for futher inspection. ");
+			
+			inventoryList.add("blood");
+			roomList.get(currentRoom).items.remove("blood");
 		}
 		else {
 			System.out.println("There is no blood here...");
@@ -429,7 +445,8 @@ public class AdventureMain {
 						 + "*\thealth,\n"
 						 + "*\teat \'item\', drink \'item\'\n"
 						 + "*\tcall station\n"
-						 + "*\tinspect \'item\'");
+						 + "*\tinspect \'item\'"
+						 + "*\ttake \'item\', drop \'item\', shoot \'item\'");
 	}	
 	
 }//end of class

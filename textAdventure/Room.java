@@ -217,7 +217,8 @@ class Room{
 		
 	//Butchery Storage Room//
 		r = new Room("Butchery", "You are in the Storage Locker for the Butchery."
-				+ "It is a little chilly, but that is probably to preserve the meat.");
+				+ "It is a little chilly, but that is probably to preserve the meat.\n"
+				+ "You see something in the corner...");
 		r.setExits("", "", "b_inside", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("b_storage",r);
 		
