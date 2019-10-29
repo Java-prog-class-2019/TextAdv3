@@ -320,7 +320,7 @@ public class AdventureMain {
 				
 				if(ans.equals("qwerty"))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
 			
-				if(ans.equals("qwerty"))System.out.println("\n\t**type: Look ** ");
+				if(ans.equals("qwerty"))System.out.println("\n\t**type: Look at (whatever you want to look at) ** ");
 		}
 		//House 1 Conversation 
 		if(currentRoom == "house1_inside") {
