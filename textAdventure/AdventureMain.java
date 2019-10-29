@@ -280,6 +280,8 @@ public class AdventureMain {
 		if (inventoryList.contains("bagel")) {
 			System.out.println("You eat the Bagel.\t+2 health points");
 			player.health = player.health + 2;
+			roomList.get("bakery").items.add("bagel");
+			inventoryList.remove("bagel");
 		} else System.out.println("You don't have a bagel...");
 		
 	}
@@ -287,12 +289,16 @@ public class AdventureMain {
 		if (inventoryList.contains("muffin")) { 
 			System.out.println("You eat the Muffin.\t+1 health point");
 			player.health = player.health + 1;
+			roomList.get("bakery").items.add("muffin");
+			inventoryList.remove("muffin");
 		} else System.out.println("You don't have a muffin...");
 		
 	}
 	void eatMeat(boolean showDesc) {
 		if (inventoryList.contains("meat")) {
 			System.out.println("You eat the Meat. It tastes kind of funny...");
+			roomList.get("deli").items.add("meat");
+			inventoryList.remove("meat");
 		} else System.out.println("You don't have any meat...");
 		
 	}
@@ -300,6 +306,8 @@ public class AdventureMain {
 		if (inventoryList.contains("coffee")) {
 			System.out.println("You drink the Coffee.\t+2 health points");
 			player.health = player.health + 2;
+			roomList.get("bakery").items.add("coffee");
+			inventoryList.remove("coffee");
 		} else System.out.println("You don't have any coffee...");
 		
 	}
@@ -308,6 +316,7 @@ public class AdventureMain {
 			System.out.println("Erm... You drink the blood? why would you do that??\n"
 					+ "you feel funny.\t\t-5 health points");
 			player.health = player.health - 5;
+			inventoryList.remove("blood");
 		} else System.out.println("You don't have any blood. Why would you drink it anyway?!?");
 		
 	}
