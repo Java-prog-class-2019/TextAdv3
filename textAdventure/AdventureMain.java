@@ -8,9 +8,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /*----TO DO----
- * NPCs
+ * NPCs (make sure talking works)
  * remove the item when ingested
- * Call station command*/
+ * Call station command
+ * add ending (inspect the bodies)
+ * add more interactable items
+ * fix butchery
+ * */
 
 public class AdventureMain {
 
