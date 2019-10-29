@@ -286,14 +286,16 @@ public class AdventureMain {
 				
 				System.out.println("Choose either X or Y\n X - Is there anything you could "
 						+ "tell me that could help me with my case?\n Y - I want a bagel. ");
+				ans = getCommand();
 				if(ans.equals("x")) {
 					System.out.println("\nNothing noticeable around here but I have noticed"
 							+ " the man at the deli looking a bit suspicious. Maybe talk to"
 							+ " him and take a look around. ");
-					return; //conversation ends
+					return;//conversation ends
 				}
 				if(ans.equals("y")) {
 					System.out.println("\nOf course! Its on the house **type: Take Bagel**");
+					return;
 				}
 				
 //				System.out.println("Bye. Thanksforchatting");
@@ -305,18 +307,25 @@ public class AdventureMain {
 			
 			System.out.println("You: Hello, Im the leading Detective "
 					+ "in the missing persons case.  **Press Enter: to see more of the conversation.**\n ");
-			String ans = getCommand();
-			if(ans.equals("")) System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
+			while (true) {
+
+				String ans = getCommand();
+				if(ans.equals("")) System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
 					+ " when there's five missing people in town\n");
-			if(ans.equals(""))System.out.println("You: Maybe you can help me with that,"
+				ans = getCommand();
+				if(ans.equals(""))System.out.println("You: Maybe you can help me with that,"
 					+ " have you noticed anthing of interest to te case?\n");
-			if(ans.equals(""))System.out.println("Mike: Can't say I have.\n");
-			ans = getCommand();
-			if(ans.equals(""))System.out.println("You: Alright, do you mind if I take a look around?\n");
-			else return;
-			ans = getCommand();
-			if(ans.equals(""))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
-			if(ans.equals(""))System.out.println("\n\t**type: Look ** ");
+				ans = getCommand();
+				if(ans.equals(""))System.out.println("Mike: Can't say I have.\n");
+				ans = getCommand();
+				if(ans.equals(""))System.out.println("You: Alright, do you mind if I take a look around?\n");
+//				else return;
+				ans = getCommand();
+				if(ans.equals(""))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
+				ans = getCommand();
+				if(ans.equals(""))System.out.println("\n\t**type: Look ** ");
+				break;
+			}
 		}
 		//House 1 Conversation 
 		if(currentRoom == "house1_inside") {
@@ -332,14 +341,16 @@ public class AdventureMain {
 			if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
 			if(ans.equals(""))System.out.println("You: thank you for your time, i’ll let you knows soon as I find out more. \n");
 		}
-		//House 2 Converation 
+		//HOUSE 2 CONVERSATION 
 		if(currentRoom == "house2_inside") {
 			System.out.println("No one seems to be home. You should leave the house.");	
 		
 		}
-		//House 3 Conversation
+		//HOUSE 3 CONVERSATION 
 		if(currentRoom == "house3_inside") {
-			
+			System.out.println("You: Hello Im the detective for the missing persons case can I ask you some questions?\n");
+			String ans = getCommand();
+			if(ans.equals(""))System.out.println("Inmate: You can ask, but if you think I would risk being sent back to jail over criminal activity, your wrong.");
 		}
 		
 	}
