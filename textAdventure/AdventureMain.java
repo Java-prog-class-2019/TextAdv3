@@ -203,7 +203,7 @@ public class AdventureMain {
 				inspectKnife(false);
 			break;
 			
-			case "body":
+			case "fridge":
 				inspectBody(false);
 			break;
 			default: System.out.println("You can't inspect that any further...");
@@ -366,7 +366,8 @@ public class AdventureMain {
 	}
 	void inspectBody(boolean showDesc) {
 		if (currentRoom == "b_storage") {
-			System.out.println("The bodies match the people in your case. You found the missing people,\n"
+			System.out.println("There are bodies in there!\n"
+					+ "The bodies match the people in your case. You found the missing people,\n"
 					+ " but sadly they are dead. Look for more clues to find the killer.");
 		}
 		else {
