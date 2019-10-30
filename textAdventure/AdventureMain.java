@@ -77,7 +77,7 @@ public class AdventureMain {
 		+ "\n\t five people went missing from their homes. As the best detective around, you are\n\t"
 		+ " asked to take on this case. Follow the clues around town to find the five missing\n\t"
 		+ " people and catch the Kidnapper. The town is counting on you to restore the happy\n\t"
-		+ " and calm reputation that Oakville was once known for. Dont forget to eat along\n\t"
+		+ " and calm reputation that Oakville was once known for. Don't forget to eat along\n\t"
 		+ " the way and keep your health up. You can't work on an empty stomach!");
 		//starting room
 		currentRoom = "police_station";
