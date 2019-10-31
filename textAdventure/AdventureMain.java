@@ -83,7 +83,6 @@ public class AdventureMain {
 		currentRoom = "police_station";
 	}
 
-
 	String getCommand() {
 		Scanner sc = new Scanner(System.in);		
 		String text = sc.nextLine();
