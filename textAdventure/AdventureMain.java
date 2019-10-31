@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /*----TO DO----
- * NPCs (make sure talking works)
- * add ending (inspect the bodies)
- * add more interactable items
- * fix butchery
- * */
+* NPCs (make sure talking works)
+* add ending (inspect the bodies)
+* add more interactable items
+* fix butchery
+* */
 
 public class AdventureMain {
 
@@ -82,7 +82,6 @@ public class AdventureMain {
 		//starting room
 		currentRoom = "police_station";
 	}
-
 
 	String getCommand() {
 		Scanner sc = new Scanner(System.in);		
