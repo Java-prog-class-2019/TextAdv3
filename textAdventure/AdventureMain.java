@@ -263,6 +263,16 @@ public class AdventureMain {
 	//TALKING 
 	void talking() {
 		
+		//BOB
+		if(currentRoom == "interrogation_room") {
+			System.out.println("You: Hey, Bob! What’s the good news?\n");
+			String ans = getCommand();
+			if(ans.equals("qwerty"))System.out.println("Bob: Thanks to you finding the missing people"
+					+ " and your call to notify us, we were able to entarogate a lead and make him"
+					+ " confess. Great work Detective.\n");
+			if(ans.equals("qwerty"))System.out.println("You: I couldn’t of done it without your help!");
+			return;
+	    }
 		
 		//BAKERY CONVERSATION 
 		if(currentRoom == "bakery") {
