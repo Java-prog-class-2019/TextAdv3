@@ -145,6 +145,9 @@ public class AdventureMain {
 		case "help":
 			printHelp();
 			break;
+		case "talk":
+			talking();
+			break;
 			
 	/**** two word commands ****/		
 		case "read":
@@ -235,6 +238,103 @@ public class AdventureMain {
 		return true;
 	}	
 
+	//TALKING 
+		void talking() {
+			
+			
+			//BAKERY CONVERSATION 
+			if(currentRoom == "bakery") {
+				System.out.println("Chat with the baker:");
+				//while(true) {
+					
+					System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
+							+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
+					String ans = getCommand();
+					if(ans.equals("a")) {
+						System.out.println("Hello Detective, what can I help you with? So sad what"
+								+ " happened to those five people.\n ");
+				    }
+					if(ans.equals("b")) {
+				    	System.out.println("Of course! It's on the house **Type: Drink Coffee**");
+				    	return;	
+				    }
+					
+					System.out.println("Choose either X or Y\n X - Is there anything you could "
+							+ "tell me that could help me with my case?\n Y - I want a bagel. ");
+					ans = getCommand();
+					if(ans.equals("x")) {
+						System.out.println("\nNothing noticeable around here but I have noticed"
+								+ " the man at the deli looking a bit suspicious. Maybe talk to"
+								+ " him and take a look around. ");
+						return;//conversation ends
+					}
+					if(ans.equals("y")) {
+						System.out.println("\nOf course! Its on the house **type: Take Bagel**");
+						return;
+					}
+					
+//					System.out.println("Bye. Thanksforchatting");
+//					return;
+				//}
+			}
+			//DELI CONVERSATION
+			if(currentRoom == "deli") {
+				
+				System.out.println("You: Hello, Im the leading Detective "
+						+ "in the missing persons case.  **Press Enter: to see more of the conversation.**\n ");
+
+
+					String ans = getCommand();
+					if(ans.equals("qwerty")) System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
+						+ " when there's five missing people in town\n");
+				
+					if(ans.equals("qwerty"))System.out.println("You: Maybe you can help me with that,"
+						+ " have you noticed anthing of interest to te case?\n");
+					
+					if(ans.equals("qwerty"))System.out.println("Mike: Can't say I have.\n");
+					
+					if(ans.equals("qwerty"))System.out.println("You: Alright, do you mind if I take a look around?\n");
+//					else return;
+					
+					if(ans.equals("qwerty"))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
+				
+					if(ans.equals("qwerty"))System.out.println("\n\t**type: Look at (whatever you want to look at) ** ");
+			}
+			//House 1 Conversation 
+			if(currentRoom == "house1_inside") {
+				System.out.println("Mrs. Johnston: Hello? Can I help you?\n");
+				String ans = getCommand();
+				if(ans.equals("qwerty"))System.out.println("You: Sorry, the door was open. I’m The detective in the missing persons case, "
+						+ "and was wondering\n if you had any information that could"
+						+ "help. I understand that your daughter was one of the missing people.\n");
+				if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: Yes, yes do you have any information for me first?\n");
+				if(ans.equals("qwerty"))System.out.println("You: Well, I’m working on it. Where was the last time you saw your daughter?\n");
+				if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
+				if(ans.equals("qwerty"))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
+				if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
+				if(ans.equals("qwerty"))System.out.println("You: thank you for your time, i’ll let you knows soon as I find out more. \n");
+			}
+			//HOUSE 2 CONVERSATION 
+			if(currentRoom == "house2_inside") {
+				System.out.println("No one seems to be home. You should leave the house.");	
+			
+			}
+			//HOUSE 3 CONVERSATION 
+			if(currentRoom == "house3_inside") {
+				System.out.println("You: Hello Im the detective for the missing persons case can I ask you some questions?\n");
+				String ans = getCommand();
+				if(ans.equals("qwerty"))System.out.println("Inmate: You can ask, but if you think I would risk being sent back to jail over criminal activity, your wrong.");
+				else return;
+			}
+			//WEAPON STORE CONVERSATION 
+			if(currentRoom == "weapon_store") {
+				System.out.println("You: Hey, im here to pick up the Detective's gun.\n");
+				String ans = getCommand();
+				if(ans.equals("qwerty"))System.out.println("Him: Of cource! **Type: Take gun**\n");
+				else return;
+			}
+		}
+	
 	//LOOKING AT	
 	void lookAtRoom(boolean showDesc) {
 		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
