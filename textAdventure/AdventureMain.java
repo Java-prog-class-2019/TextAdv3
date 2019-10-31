@@ -8,10 +8,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /*----TO DO----
-* NPCs (make sure talking works)
 * add ending (inspect the bodies)
-* add more interactable items
-* fix butchery
+* add more interactable items and stuff to do
+* ALEC, DRAW A MAP
 * */
 
 public class AdventureMain {
