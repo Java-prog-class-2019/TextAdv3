@@ -297,8 +297,6 @@ public class AdventureMain {
 //					else return;
 					
 					if(ans.equals("qwerty"))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
-				
-					if(ans.equals("qwerty"))System.out.println("\n\t**type: Look at (whatever you want to look at) ** ");
 			}
 			//House 1 Conversation 
 			if(currentRoom == "house1_inside") {
@@ -312,7 +310,7 @@ public class AdventureMain {
 				if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
 				if(ans.equals("qwerty"))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
 				if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
-				if(ans.equals("qwerty"))System.out.println("You: thank you for your time, i’ll let you knows soon as I find out more. \n");
+				if(ans.equals("qwerty"))System.out.println("You: thank you for your time, i'll let you knows soon as I find out more. \n");
 			}
 			//HOUSE 2 CONVERSATION 
 			if(currentRoom == "house2_inside") {
@@ -330,7 +328,7 @@ public class AdventureMain {
 			if(currentRoom == "weapon_store") {
 				System.out.println("You: Hey, im here to pick up the Detective's gun.\n");
 				String ans = getCommand();
-				if(ans.equals("qwerty"))System.out.println("Him: Of cource! **Type: Take gun**\n");
+				if(ans.equals("qwerty"))System.out.println("Him: Of course! **Type: Take gun**\n");
 				else return;
 			}
 		}
@@ -553,6 +551,7 @@ public class AdventureMain {
 						 + "*\tnorth, east, south, west\n"
 						 + "*\ti, inventory\n"
 						 + "*\tlook\n"
+						 + "*\ttalk\n"
 						 + "*\thealth,\n"
 						 + "*\teat \'item\', drink \'item\'\n"
 						 + "*\tcall station\n"
