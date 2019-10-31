@@ -99,8 +99,8 @@ class Room{
 		r.setExits("bract_street", "", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("deli",r);
 
-	//Bract and Main Intersection//
-		r = new Room("Intersection", "This is the intersection between Bract Street and Main Street.");
+	//Bract and Main Intersection//                    EXAMPLE LOCATION
+		r = new Room("Intersection", "This is the intersection between Bract Street and Main Street. [S,W,E]");
 		r.setExits("", "main_street", "bract_left", "bract_street", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("b&m_intersection",r);
 		

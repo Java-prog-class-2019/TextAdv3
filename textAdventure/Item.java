@@ -86,6 +86,29 @@ class Item {
 		itemList.put("pigs",item);
 		roomList.get("b_inside").items.add("pigs");
 		
+//		item = new Item("Sign");
+//		itemList.put("sign",item);
+//		roomList.get("????").items.add("sign");
+//		desc "while walking through you spot a small wooden sign nailed to a tree"
+//
+//		item = new Item("Pond");
+//		itemList.put("pond",item);
+//		roomList.get("????").items.add("pond");
+//		desc "nearby is a murky pond with something shiny in the bottom"
+//		
+//		item = new Item("Key");
+//		itemList.put("key",item);
+//		roomList.get("????").items.add("key");
+//		
+//		item = new Item("Acorn");
+//		itemList.put("acorn",item);
+//		roomList.get("????").items.add("acorn");
+//		
+//		item = new Item("Lock");
+//		itemList.put("lock",item);
+//		roomList.get("????").items.add("lock");
+//		desc ""
+		
 		
 		
 		item = new Item("Loaded Gun");

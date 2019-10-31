@@ -337,9 +337,14 @@ public class AdventureMain {
 		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
 		System.out.println(roomList.get(currentRoom).getDesc());
 		Room r = roomList.get(currentRoom);
-		System.out.println("items in the room: ");
-		for (String s  : r.items) {
-			System.out.println("> " + s);
+		if (roomList.get(currentRoom).items.isEmpty()) {
+			System.out.println("there are no items in this room");
+		}
+		else {
+			System.out.println("items in the room: ");
+			for (String s  : r.items) {
+				System.out.println("> " + s);
+			}
 		}
 	}
 	void lookAtHealth(boolean showDesc) {
