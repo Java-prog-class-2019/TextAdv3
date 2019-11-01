@@ -19,9 +19,9 @@ public class AdventureMain {
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
 	Player player;
-	
-	
-	
+	boolean win = false;
+	boolean die = false;
+	int ending = 0;
 	int turns = 0;
 
 	public static void main(String[]args){
@@ -31,6 +31,7 @@ public class AdventureMain {
 	AdventureMain() {
 
 		boolean playing = true;
+		
 		String command = "";
 
 		setup(); //create all objects needed, including map; print intro. message
@@ -45,11 +46,18 @@ public class AdventureMain {
 			playing = parseCommand(command);
 			//check to see if player has died (in whichever various ways the player can die)
 
-			//check to see if the player has won the game
+			 
+			if (win == true) {
+				System.out.println("\tCongratulations you won the game!! Oakville is now the quiet and safe place it once was before. :) ");
+				System.exit(0);
+			}
+			
+			if (die == true) {
+				System.out.println("\t You Died. You should have eaten :( Thanks for playing!");
+				System.exit(0);
+			}
 			
 		}
-
-		// does anything need to be done after the main game loop exits?
 
 	}
 
@@ -68,6 +76,7 @@ public class AdventureMain {
 		+ " If you need help just type: Help");
 		//starting room
 		currentRoom = "police_station";
+		
 	}
 
 	String getCommand() {
@@ -233,6 +242,12 @@ public class AdventureMain {
 	}
 	void lookAtHealth(boolean showDesc) {
 		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
+		if (player.health == 6) {
+			System.out.println("\n***Your health is declining you should eat or drink something.***");
+		}
+		if (player.health == 0)	{
+			die = true;
+		}
 	}
 	void lookAtInventory(boolean showDesc) {
 		System.out.println("\n_.-._.- Inventory -._.-._");
@@ -253,6 +268,9 @@ public class AdventureMain {
 		//do whateverroom moving stuff you do
 		//then	
 		if (currentRoom == "bakery" || currentRoom == "deli"){
+			player.health -= 4;
+		}
+		if (currentRoom == "interrogation_room" && ending == 1) {
 			player.health -= 2;
 		}
 		
@@ -264,15 +282,19 @@ public class AdventureMain {
 	void talking() {
 		
 		//BOB
-		if(currentRoom == "interrogation_room") {
+		if(currentRoom == "interrogation_room" && ending == 1) {
 			System.out.println("You: Hey, Bob! What’s the good news?\n");
 			String ans = getCommand();
 			if(ans.equals("qwerty"))System.out.println("Bob: Thanks to you finding the missing people"
 					+ " and your call to notify us, we were able to entarogate a lead and make him"
 					+ " confess. Great work Detective.\n");
-			if(ans.equals("qwerty"))System.out.println("You: I couldn’t of done it without your help!");
+			if(ans.equals("qwerty"))System.out.println("You: I couldn’t of done it without your help!\n");
+			win = true;
 			return;
-	    }
+		}else {
+			System.out.println("\nBob cant talk right now. :(");
+		}
+	    
 		
 		//BAKERY CONVERSATION 
 		if(currentRoom == "bakery") {
@@ -404,7 +426,9 @@ public class AdventureMain {
 	void inspectBody(boolean showDesc) {
 		if (currentRoom == "b_storage") {
 			System.out.println("The bodies match the people in your case. You found the missing people,\n"
-					+ " but sadly they are dead. Look for more clues to find the killer.");
+					+ " but sadly they are dead... you should call this in! **Type: Call Station** \n" + 
+					"you recently got a call from the station that they might have found the killer, go there now.");
+			ending++;
 		}
 		else {
 			System.out.println("There are no bodies here...");
