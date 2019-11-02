@@ -369,7 +369,7 @@ public class AdventureMain {
 		}
 		//do whateverroom moving stuff you do
 		//then	
-		if (currentRoom == "bakery" || currentRoom == "butchery"){
+		if (currentRoom == "bakery" || currentRoom == "deli"){
 			player.health -= 2;
 		}
 		
