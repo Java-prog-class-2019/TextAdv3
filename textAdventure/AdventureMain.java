@@ -154,16 +154,19 @@ public class AdventureMain {
 		case "eat":
 			switch(word2) {
 				case"bagel":
-					//need if statement for whether you have it or not
 					eatBagel(false);
 					break;
 				case"muffin":
-					//need if statement for whether you have it or not
 					eatMuffin(false);
 					break;
 				case"meat":
-					//need if statement for whether you have it or not
 					eatMeat(false);
+					break;
+				case"pig":
+					eatPigs(false);
+					break;
+				case"corn":
+					eatCorn(false);
 					break;
 				default: System.out.println("You can't eat that...");
 			}
@@ -172,11 +175,9 @@ public class AdventureMain {
 		case "drink":
 			switch(word2) {
 				case"coffee":
-					//need if statement for whether you have it or not
 					drinkCoffee(false);
 				break;
 				case"blood":
-					//need if statement for whether you have it or not
 					drinkBlood(false);
 				break;
 				default: System.out.println("You can't drink that...");
@@ -231,7 +232,7 @@ public class AdventureMain {
 		// ...		
 
 		default: 
-			System.out.println("Sorry, I don't understand that command");
+			System.out.println("Sorry, I don't understand that command. Type help for a list of commands");
 		}
 		return true;
 	}	
@@ -404,6 +405,22 @@ public class AdventureMain {
 		} else System.out.println("You don't have any meat...");
 		
 	}
+	void eatCorn(boolean showDesc) {
+		if (inventoryList.contains("corn")) { 
+			System.out.println("You eat some corn.\t+2 health points");
+			player.health = player.health + 2;
+			roomList.get("corn_field").items.add("corn");
+			inventoryList.remove("corn");
+		} else System.out.println("You don't have any corn...");
+		
+	}
+	void eatPigs(boolean showDesc) {
+		if (inventoryList.contains("pig")) {
+			System.out.println("You ate like, an entire pig. Why?\t-15 health points");
+			player.health = player.health - 15;
+		} else System.out.println("You don't have any pigs to eat...");
+		
+	}
 	void drinkCoffee(boolean showDesc) {
 		if (inventoryList.contains("coffee")) {
 			System.out.println("You drink the Coffee.\t+2 health points");
@@ -555,7 +572,7 @@ public class AdventureMain {
 						 + "*\ti, inventory\n"
 						 + "*\tlook\n"
 						 + "*\ttalk\n"
-						 + "*\thealth,\n"
+						 + "*\thealth\n"
 						 + "*\teat \'item\', drink \'item\'\n"
 						 + "*\tcall station\n"
 						 + "*\tinspect \'item\'"

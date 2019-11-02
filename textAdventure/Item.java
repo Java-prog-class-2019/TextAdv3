@@ -82,9 +82,9 @@ class Item {
 		itemList.put("meat",item);
 		roomList.get("deli").items.add("meat");
 		
-		item = new Item("Pigs");
-		itemList.put("pigs",item);
-		roomList.get("b_inside").items.add("pigs");
+		item = new Item("Pig");
+		itemList.put("pig",item);
+		roomList.get("b_inside").items.add("pig");
 		
 //		item = new Item("Sign");
 //		itemList.put("sign",item);
