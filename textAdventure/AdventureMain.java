@@ -10,7 +10,6 @@ import java.util.Scanner;
 /*----TO DO----
 * add ending (inspect the bodies)
 * add more interactable items and stuff to do
-* ALEC, DRAW A MAP
 * */
 
 public class AdventureMain {
