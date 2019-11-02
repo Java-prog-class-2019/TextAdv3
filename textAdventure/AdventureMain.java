@@ -575,7 +575,7 @@ public class AdventureMain {
 						 + "*\thealth\n"
 						 + "*\teat \'item\', drink \'item\'\n"
 						 + "*\tcall station\n"
-						 + "*\tinspect \'item\'"
+						 + "*\tinspect \'item\'\n"
 						 + "*\ttake \'item\', drop \'item\', shoot \'item\'");
 	}	
 	
