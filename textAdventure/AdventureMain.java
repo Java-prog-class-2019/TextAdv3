@@ -26,6 +26,7 @@ public class AdventureMain {
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
 	Player player;
+	boolean win = false;
 	
 	
 	
@@ -240,6 +241,19 @@ public class AdventureMain {
 	//TALKING 
 		void talking() {
 			
+			//BOB
+			if(currentRoom == "interrogation_room" && ending == 1) {
+				System.out.println("You: Hey, Bob! What’s the good news?\n");
+				String ans = getCommand();
+				if(ans.equals("qwerty"))System.out.println("Bob: Thanks to you finding the missing people"
+						+ " and your call to notify us, we were able to entarogate a lead and make him"
+						+ " confess. Great work Detective.\n");
+				if(ans.equals("qwerty"))System.out.println("You: I couldn’t of done it without your help!\n");
+				win = true;
+				return;
+			}else {
+				System.out.println("\nBob cant talk right now. :(");
+			}
 			
 			//BAKERY CONVERSATION 
 			if(currentRoom == "bakery") {
