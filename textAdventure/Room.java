@@ -70,12 +70,19 @@ class Room{
 //		r.setExits("north", "south", "west", "east", "up", "down");//N,S,W,E,U,D -- put roomList names here
 //		roomList.put("name in the list",r);
 		
+		
 	//POLICE STATION//
 		Room r = new Room("Police Station", "you are in the main block of the Police Station. "
 				+ "South of you is the Exit, East is B Block, and West is A Block.");
-		r.setExits("", "bract_street", "a_block", "b_block", "", "");//N,S,W,E,U,D -- put roomList names here
+		r.setExits("i_room", "bract_street", "a_block", "b_block", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("police_station",r);
 		
+	//INTERROGATION ROOM//
+		r = new Room("Police Station", "This is the interrogation room in the Police Station."
+				+ " South of you is the Main block of the police station. Your pal Bob is here.");
+		r.setExits("", "police_station", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
+		roomList.put("i_room",r);
+				
 	//A BLOCK//
 		r = new Room("Police Station", "This is A Block of the Police Station. "
 				+ "Your office is in here. Don't forget your badge before you leave!");

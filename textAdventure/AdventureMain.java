@@ -27,7 +27,7 @@ public class AdventureMain {
 	String currentRoom;
 	Player player;
 	boolean win = false;
-	
+	boolean ending = false;
 	
 	
 	int turns = 0;
@@ -58,7 +58,10 @@ public class AdventureMain {
 				System.exit(0);
 			}
 
-			//check to see if the player has won the game
+			if (win) {
+				System.out.println("You solved the case! Once again, Oakville returns to a state of peace.\n"
+						+ "Thank you for playing! Created by: Casey, Alec, and Isaiah");
+			}
 		}
 
 		// does anything need to be done after the main game loop exits?
@@ -242,17 +245,17 @@ public class AdventureMain {
 		void talking() {
 			
 			//BOB
-			if(currentRoom == "interrogation_room" && ending == 1) {
-				System.out.println("You: Hey, Bob! What’s the good news?\n");
+			if(currentRoom == "i_room" && ending) {
+				System.out.println("You: Hey, Bob! What\'s the good news? **Press Enter: to see more of the conversation.**\n");
 				String ans = getCommand();
 				if(ans.equals("qwerty"))System.out.println("Bob: Thanks to you finding the missing people"
-						+ " and your call to notify us, we were able to entarogate a lead and make him"
-						+ " confess. Great work Detective.\n");
-				if(ans.equals("qwerty"))System.out.println("You: I couldn’t of done it without your help!\n");
+						+ " and your call to notify us,\n"
+						+ "we were able to enterrogate a lead and make him confess. Great work Detective.\n");
+				if(ans.equals("qwerty"))System.out.println("You: I couldn\'t of done it without your help!\n");
 				win = true;
 				return;
 			}else {
-				System.out.println("\nBob cant talk right now. :(");
+				System.out.println("\nBob seems to be busy...");
 			}
 			
 			//BAKERY CONVERSATION 
@@ -457,17 +460,17 @@ public class AdventureMain {
 	
 	//CALLING
 	void callStation(boolean showDesc) {
-		if (inventoryList.contains("blood")) {
+		if (inventoryList.contains("blood") && ending == false) {
 			System.out.println("Our team says that the blood seems to be from a pig.\n");
 		}
-		if (inventoryList.contains("knife")) {
+		if (inventoryList.contains("knife") && ending == false) {
 			System.out.println("Our team thinks that this could be significant to the case.\n");
 		}
 		else System.out.println("The team wishes you luck on your case, detective!");
-//		if (inventoryList.contains("THINGY")) {
-//	
-//		}
-
+		if(ending == true) {
+			System.out.println("Good timing, detective. We have just caught the killer.\n"
+					+ "Please come back to the station to interrogate him.");
+		}
 	}
 	
 	
@@ -499,7 +502,8 @@ public class AdventureMain {
 		if (currentRoom == "b_storage") {
 			System.out.println("There are bodies in there!\n"
 					+ "The bodies match the people in your case. You found the missing people,\n"
-					+ " but sadly they are dead. Look for more clues to find the killer.");
+					+ " but sadly they are dead. You should call this in.");
+			ending = true;
 		}
 		else {
 			System.out.println("There are no bodies here...");
