@@ -11,7 +11,6 @@ import java.util.Scanner;
  * Fix health
  * initial explanations (talk, call station, inspect)
  * grammatical errors (ex. when you can't take something)
- * add more to call station??
  */
 
 
