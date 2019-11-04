@@ -38,9 +38,9 @@ class Item {
 		r.items.add("badge");
 		
 
-		for (String s  : r.items) {
-			System.out.println("--- " + s);
-		}
+//		for (String s  : r.items) {
+//			System.out.println("--- " + s);
+//		}
 		
 		
 		//inventoryArray[0] == "Badge";
