@@ -51,10 +51,15 @@ public class AdventureMain {
 			command = getCommand();
 
 			playing = parseCommand(command);
+			//check if health is low
+			if (player.health <= 4) {
+				System.out.println("\n_.-._.WARNING: LOW HEALTH._.-._\n\n"
+						+ "Remember, you need to eat and drink to survive. Go to the bakery or deli to find food");
+			}
 			//check to see if player has died (in whichever various ways the player can die)
 			if (player.health <= 0) {
 				System.out.println("\n_.-._.YOU DIED._.-._\n\n"
-						+ "You didn't keep your health up! eat and drink things to survive.");
+						+ "You didn't keep your health up! eat and drink things to survive; you can find food in stores.");
 				System.exit(0);
 			}
 			//Check to see if the player has won the game
@@ -79,7 +84,11 @@ public class AdventureMain {
 		+ " asked to take on this case. Follow the clues around town to find the five missing\n\t"
 		+ " people and catch the Kidnapper. The town is counting on you to restore the happy\n\t"
 		+ " and calm reputation that Oakville was once known for. Don't forget to eat along\n\t"
-		+ " the way and keep your health up. You can't work on an empty stomach!");
+		+ " the way and keep your health up. You can't work on an empty stomach!"
+		+ "\n\n\t WARNING: certain rooms will reduce your health, remember to check your hp with the HEALTH command"
+		+ "\n\t and eat frequently."
+		
+				);
 		//starting room
 		currentRoom = "police_station";
 	}
@@ -368,8 +377,8 @@ public class AdventureMain {
 		else {
 			System.out.println("You can't go that way");
 		}	
-		if (currentRoom == "bakery" || currentRoom == "deli"){
-			player.health -= 2;
+		if (currentRoom == "butchery" || currentRoom == "b_inside"){
+			player.health -= 1;
 		}
 	}
 	
