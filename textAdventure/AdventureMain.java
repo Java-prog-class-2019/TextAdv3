@@ -299,7 +299,7 @@ public class AdventureMain {
 			if(ans.equals("qwerty"))System.out.println("You: Alright, do you mind if I take a look around?\n");
 			if(ans.equals("qwerty"))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
 		}
-		//House 1 Conversation 
+		//HOUSE 1 CONVERSATION 
 		if(currentRoom == "house1_inside") {
 			System.out.println("Mrs. Johnston: Hello? Can I help you?\n");
 			String ans = getCommand();
@@ -440,17 +440,21 @@ public class AdventureMain {
 	
 	//CALLING METHOD
 	void callStation(boolean showDesc) {
+		//if you have the blood
 		if (inventoryList.contains("blood") && ending == false) {
-			System.out.println("Our team says that the blood seems to be from a pig.\n");
+			System.out.println("_.-Blood-._\nOur team says that the blood seems to be from a pig.\n");
 		}
+		//if you have the knife
 		if (inventoryList.contains("knife") && ending == false) {
-			System.out.println("Our team thinks that this could be significant to the case.\n");
+			System.out.println("_.-Knife-._\nOur team thinks that this could be significant to the case.\n");
 		}
-		else System.out.println("The team wishes you luck on your case, detective!");
+		//if you found the bodies
 		if(ending == true) {
 			System.out.println("Good timing, detective. We have just caught the killer.\n"
 					+ "Please come back to the station to interrogate him.");
 		}
+		//generic response
+		else System.out.println("The team wishes you luck on your case, detective!");
 	}
 	
 	
@@ -509,7 +513,7 @@ public class AdventureMain {
 		}
 	}
 	
-	//SHOOT METHODs
+	//SHOOT METHODS
 	void shootItem(String word2) {	
 		if(roomList.get(currentRoom).items.contains(word2) && inventoryList.contains("gun")) {
 			//if it is, remove it from the room
