@@ -7,6 +7,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/*TO DO
+ * Fix health
+ * initial explanations (talk, call station, inspect)
+ * what directions can you go?
+ * grammatical errors (ex. when you can't take something)
+ * add more to call station??
+ */
+
+
 public class AdventureMain {
 
 	static int INVSIZE = 10; //size of inventory	
@@ -243,7 +252,7 @@ public class AdventureMain {
 			win = true;
 			return;
 		}else {
-			System.out.println("\nBob seems to be busy...");
+			System.out.println("You can't talk right now");
 		}
 			
 		//BAKERY CONVERSATION 
