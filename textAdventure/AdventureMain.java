@@ -7,29 +7,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
-/*----TO DO----
-* add ending (inspect the bodies)
-* add more interactable items and stuff to do
-* ALEC, DRAW A MAP
-* */
-
 public class AdventureMain {
 
 	static int INVSIZE = 10; //size of inventory	
 
 	//instance variables
-	//ArrayList<Room> roomList = new ArrayList<Room>();
 	HashMap<String,Room> roomList = new HashMap<String,Room>();
 	
-//	HashMap<String, Item> inventoryList = new HashMap<String,Item>(); //list of all item objects
 	ArrayList <String>inventoryList = new ArrayList <String>();
 	
+	//List of all objects
 	HashMap<String, Item> itemList = new HashMap<String,Item>(); //list of all item objects
 	String currentRoom;
 	Player player;
-	
-	
-	
+	boolean win = false;
+	boolean ending = false;
 	int turns = 0;
 
 	public static void main(String[]args){
@@ -57,20 +49,22 @@ public class AdventureMain {
 						+ "You didn't keep your health up! eat and drink things to survive.");
 				System.exit(0);
 			}
-
-			//check to see if the player has won the game
+			//Check to see if the player has won the game
+			if (win) {
+				System.out.println("You solved the case! Once again, Oakville returns to a state of peace.\n"
+						+ "Thank you for playing! Created by: Casey, Alec, and Isaiah");
+				System.exit(0);
+			}
 		}
-
-		// does anything need to be done after the main game loop exits?
-
 	}
 
+	//SETUP METHOD//
 	void setup() {
 		player = new Player();
-		Room.setupRooms(roomList);
-		Item.setUpItems(itemList, roomList);
-		// ... more stuff ...
-		//******Added*********
+		Room.setupRooms(roomList); //set up the rooms
+		Item.setUpItems(itemList, roomList); //set up the items in the rooms
+		
+		//Title message
 		System.out.println("This is The Oakville Mystery.");
 		System.out.println("\n\t A Town once known to be peaceful and happy is claimed by calimity. A week ago,"
 		+ "\n\t five people went missing from their homes. As the best detective around, you are\n\t"
@@ -82,25 +76,23 @@ public class AdventureMain {
 		currentRoom = "police_station";
 	}
 
+	//GET COMMAND METHOD//
 	String getCommand() {
 		Scanner sc = new Scanner(System.in);		
 		String text = sc.nextLine();
 		if (text.length() == 0) text = "qwerty"; //default command
-		//sc.close();
 		return text;
 	}
 
-	
+	//PARSE COMMAND METHOD//
 	boolean parseCommand(String text) {
 
 		/***** PREPROCESSING *****/
 		//P1. 
 		text = text.toLowerCase().trim();	//the complete string BEFORE parsing
-		
 
 		//handle situation where no words entered ...
 
-		
 		//P2. word replacement
 		text = text.replaceAll(" into ", " in ");
 		text = text.replaceAll(" rocks", " rock");
@@ -126,7 +118,7 @@ public class AdventureMain {
 		/***** MAIN PROCESSING *****/
 		switch(word1) {
 		
-	/**** one word commands ****/
+		/**** one word commands ****/
 		case "quit":
 			System.out.print("Do you really want to quit the game? ");
 			String ans = getCommand().toUpperCase();
@@ -148,23 +140,26 @@ public class AdventureMain {
 			talking();
 			break;
 			
-	/**** two word commands ****/		
+		/**** two word commands ****/		
 		case "read":
 			//readObject(word2);
 			break;
 		case "eat":
 			switch(word2) {
 				case"bagel":
-					//need if statement for whether you have it or not
 					eatBagel(false);
 					break;
 				case"muffin":
-					//need if statement for whether you have it or not
 					eatMuffin(false);
 					break;
 				case"meat":
-					//need if statement for whether you have it or not
 					eatMeat(false);
+					break;
+				case"pig":
+					eatPigs(false);
+					break;
+				case"corn":
+					eatCorn(false);
 					break;
 				default: System.out.println("You can't eat that...");
 			}
@@ -173,11 +168,9 @@ public class AdventureMain {
 		case "drink":
 			switch(word2) {
 				case"coffee":
-					//need if statement for whether you have it or not
 					drinkCoffee(false);
 				break;
 				case"blood":
-					//need if statement for whether you have it or not
 					drinkBlood(false);
 				break;
 				default: System.out.println("You can't drink that...");
@@ -232,115 +225,114 @@ public class AdventureMain {
 		// ...		
 
 		default: 
-			System.out.println("Sorry, I don't understand that command");
+			System.out.println("Sorry, I don't understand that command. Type help for a list of commands");
 		}
 		return true;
-	}	
+	}//END OF PARSECOMMAND METHOD	
 
-	//TALKING 
-		void talking() {
+	//TALKING  METHOD
+	void talking() {		
+		//BOB
+		if(currentRoom == "i_room" && ending) {
+			System.out.println("You: Hey, Bob! What\'s the good news? **Press Enter: to see more of the conversation.**\n");
+			String ans = getCommand();
+			if(ans.equals("qwerty"))System.out.println("Bob: Thanks to you finding the missing people"
+					+ " and your call to notify us,\n"
+					+ "we were able to enterrogate a lead and make him confess. Great work Detective.\n");
+			if(ans.equals("qwerty"))System.out.println("You: I couldn\'t of done it without your help!\n");
+			win = true;
+			return;
+		}else {
+			System.out.println("\nBob seems to be busy...");
+		}
 			
+		//BAKERY CONVERSATION 
+		if(currentRoom == "bakery") {
+			System.out.println("Chat with the baker:");
+			//while(true) {
 			
-			//BAKERY CONVERSATION 
-			if(currentRoom == "bakery") {
-				System.out.println("Chat with the baker:");
-				//while(true) {
-					
-					System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
-							+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
-					String ans = getCommand();
-					if(ans.equals("a")) {
-						System.out.println("Hello Detective, what can I help you with? So sad what"
-								+ " happened to those five people.\n ");
-				    }
-					if(ans.equals("b")) {
-				    	System.out.println("Of course! It's on the house **Type: Drink Coffee**");
-				    	return;	
-				    }
-					
-					System.out.println("Choose either X or Y\n X - Is there anything you could "
-							+ "tell me that could help me with my case?\n Y - I want a bagel. ");
-					ans = getCommand();
-					if(ans.equals("x")) {
-						System.out.println("\nNothing noticeable around here but I have noticed"
-								+ " the man at the deli looking a bit suspicious. Maybe talk to"
-								+ " him and take a look around. ");
-						return;//conversation ends
-					}
-					if(ans.equals("y")) {
-						System.out.println("\nOf course! Its on the house **type: Take Bagel**");
-						return;
-					}
-					
-//					System.out.println("Bye. Thanksforchatting");
-//					return;
-				//}
+			System.out.println("Choose either A or B\n A - Hello, Im the leading Detective "
+					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
+			String ans = getCommand();
+			if(ans.equals("a")) {
+				System.out.println("Hello Detective, what can I help you with? So sad what"
+						+ " happened to those five people.\n ");
 			}
-			//DELI CONVERSATION
-			if(currentRoom == "deli") {
-				
-				System.out.println("You: Hello, Im the leading Detective "
-						+ "in the missing persons case.  **Press Enter: to see more of the conversation.**\n ");
-
-
-					String ans = getCommand();
-					if(ans.equals("qwerty")) System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
-						+ " when there's five missing people in town\n");
-				
-					if(ans.equals("qwerty"))System.out.println("You: Maybe you can help me with that,"
-						+ " have you noticed anthing of interest to te case?\n");
+			if(ans.equals("b")) {
+			   	System.out.println("Of course! It's on the house **Type: Drink Coffee**");
+			   	return;	
+			}
 					
-					if(ans.equals("qwerty"))System.out.println("Mike: Can't say I have.\n");
-					
-					if(ans.equals("qwerty"))System.out.println("You: Alright, do you mind if I take a look around?\n");
-//					else return;
-					
-					if(ans.equals("qwerty"))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
+			System.out.println("Choose either X or Y\n X - Is there anything you could "
+					+ "tell me that could help me with my case?\n Y - I want a bagel. ");
+			ans = getCommand();
+			if(ans.equals("x")) {
+				System.out.println("\nNothing noticeable around here but I have noticed"
+						+ " the man at the deli looking a bit suspicious. Maybe talk to"
+						+ " him and take a look around. ");
+				return;//conversation ends
 			}
-			//House 1 Conversation 
-			if(currentRoom == "house1_inside") {
-				System.out.println("Mrs. Johnston: Hello? Can I help you?\n");
-				String ans = getCommand();
-				if(ans.equals("qwerty"))System.out.println("You: Sorry, the door was open. I’m The detective in the missing persons case, "
-						+ "and was wondering\n if you had any information that could"
-						+ "help. I understand that your daughter was one of the missing people.\n");
-				if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: Yes, yes do you have any information for me first?\n");
-				if(ans.equals("qwerty"))System.out.println("You: Well, I’m working on it. Where was the last time you saw your daughter?\n");
-				if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
-				if(ans.equals("qwerty"))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
-				if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
-				if(ans.equals("qwerty"))System.out.println("You: thank you for your time, i'll let you knows soon as I find out more. \n");
-			}
-			//HOUSE 2 CONVERSATION 
-			if(currentRoom == "house2_inside") {
-				System.out.println("No one seems to be home. You should leave the house.");	
-			
-			}
-			//HOUSE 3 CONVERSATION 
-			if(currentRoom == "house3_inside") {
-				System.out.println("You: Hello Im the detective for the missing persons case can I ask you some questions?\n");
-				String ans = getCommand();
-				if(ans.equals("qwerty"))System.out.println("Inmate: You can ask, but if you think I would risk being sent back to jail over criminal activity, your wrong.");
-				else return;
-			}
-			//WEAPON STORE CONVERSATION 
-			if(currentRoom == "weapon_store") {
-				System.out.println("You: Hey, im here to pick up the Detective's gun.\n");
-				String ans = getCommand();
-				if(ans.equals("qwerty"))System.out.println("Him: Of course! **Type: Take gun**\n");
-				else return;
+			if(ans.equals("y")) {
+				System.out.println("\nOf course! Its on the house **type: Take Bagel**");
+				return;
 			}
 		}
+		
+		//DELI CONVERSATION
+		if(currentRoom == "deli") {	
+			System.out.println("You: Hello, Im the leading Detective "
+					+ "in the missing persons case.  **Press Enter: to see more of the conversation.**\n ");
+			String ans = getCommand();
+			if(ans.equals("qwerty")) System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
+				+ " when there's five missing people in town\n");
+			if(ans.equals("qwerty"))System.out.println("You: Maybe you can help me with that,"
+					+ " have you noticed anthing of interest to te case?\n");
+			if(ans.equals("qwerty"))System.out.println("Mike: Can't say I have.\n");
+			if(ans.equals("qwerty"))System.out.println("You: Alright, do you mind if I take a look around?\n");
+			if(ans.equals("qwerty"))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
+		}
+		//House 1 Conversation 
+		if(currentRoom == "house1_inside") {
+			System.out.println("Mrs. Johnston: Hello? Can I help you?\n");
+			String ans = getCommand();
+			if(ans.equals("qwerty"))System.out.println("You: Sorry, the door was open. I’m The detective in the missing persons case, "
+					+ "and was wondering\n if you had any information that could"
+					+ "help. I understand that your daughter was one of the missing people.\n");
+			if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: Yes, yes do you have any information for me first?\n");
+			if(ans.equals("qwerty"))System.out.println("You: Well, I’m working on it. Where was the last time you saw your daughter?\n");
+			if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
+			if(ans.equals("qwerty"))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
+			if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
+			if(ans.equals("qwerty"))System.out.println("You: thank you for your time, i'll let you knows soon as I find out more. \n");
+		}
+		//HOUSE 2 CONVERSATION 
+		if(currentRoom == "house2_inside") {
+			System.out.println("No one seems to be home. You should leave the house.");	
+		}
+		//HOUSE 3 CONVERSATION 
+		if(currentRoom == "house3_inside") {
+			System.out.println("You: Hello Im the detective for the missing persons case can I ask you some questions?\n");
+			String ans = getCommand();
+			if(ans.equals("qwerty"))System.out.println("Inmate: You can ask, but if you think I would risk being sent back to jail over criminal activity, your wrong.");
+			else return;
+		}
+		//WEAPON STORE CONVERSATION 
+		if(currentRoom == "weapon_store") {
+			System.out.println("You: Hey, im here to pick up the Detective's gun.\n");
+			String ans = getCommand();
+			if(ans.equals("qwerty"))System.out.println("Him: Of course! **Type: Take gun**\n");
+			else return;
+		}
+	}//END OF TALKING METHOD
 	
-	//LOOKING AT	
+	//LOOK METHODS
 	void lookAtRoom(boolean showDesc) {
 		System.out.println("\n_.-._.-" + roomList.get(currentRoom).getTitle() + "-._.-._");
 		System.out.println(roomList.get(currentRoom).getDesc());
 		Room r = roomList.get(currentRoom);
 		if (roomList.get(currentRoom).items.isEmpty()) {
 			System.out.println("there are no items in this room");
-		}
-		else {
+		}else {
 			System.out.println("items in the room: ");
 			for (String s  : r.items) {
 				System.out.println("> " + s);
@@ -351,11 +343,12 @@ public class AdventureMain {
 		System.out.println("\n_.-._. " + "Heath: " + player.health + " ._.-._");
 	}
 	void lookAtInventory(boolean showDesc) {
-		//System.out.println("\n_.-._.-" + itemList.get(showDesc));
-		//System.out.println(inventoryList.get(showDesc));
 		System.out.println("INVENTORY " + inventoryList);
 	}
 	
+	//END OF LOOK METHODS
+	
+	//MOVE TO ROOM METHOD
 	void moveToRoom(char dir) {
 		String newRoom = roomList.get(currentRoom).getExit(dir);
 		if (newRoom != "") {	//does this direction work?
@@ -366,19 +359,14 @@ public class AdventureMain {
 		}
 		else {
 			System.out.println("You can't go that way");
-		}
-		//do whateverroom moving stuff you do
-		//then	
-		if (currentRoom == "bakery" || currentRoom == "butchery"){
+		}	
+		if (currentRoom == "bakery" || currentRoom == "deli"){
 			player.health -= 2;
 		}
-		
-		
-		
 	}
 	
 	
-	//EATING and DRINKING
+	//EATING and DRINKING METHODS
 	void eatBagel(boolean showDesc) {
 		if (inventoryList.contains("bagel")) {
 			System.out.println("You eat the Bagel.\t+2 health points");
@@ -405,6 +393,22 @@ public class AdventureMain {
 		} else System.out.println("You don't have any meat...");
 		
 	}
+	void eatCorn(boolean showDesc) {
+		if (inventoryList.contains("corn")) { 
+			System.out.println("You eat some corn.\t+2 health points");
+			player.health = player.health + 2;
+			roomList.get("corn_field").items.add("corn");
+			inventoryList.remove("corn");
+		} else System.out.println("You don't have any corn...");
+		
+	}
+	void eatPigs(boolean showDesc) {
+		if (inventoryList.contains("pig")) {
+			System.out.println("You ate like, an entire pig. Why?\t-15 health points");
+			player.health = player.health - 15;
+		} else System.out.println("You don't have any pigs to eat...");
+		
+	}
 	void drinkCoffee(boolean showDesc) {
 		if (inventoryList.contains("coffee")) {
 			System.out.println("You drink the Coffee.\t+2 health points");
@@ -424,24 +428,25 @@ public class AdventureMain {
 		
 	}
 	
+	//END OF EATING AND DRINKING METHODS
 	
-	//CALLING
+	//CALLING METHOD
 	void callStation(boolean showDesc) {
-		if (inventoryList.contains("blood")) {
+		if (inventoryList.contains("blood") && ending == false) {
 			System.out.println("Our team says that the blood seems to be from a pig.\n");
 		}
-		if (inventoryList.contains("knife")) {
+		if (inventoryList.contains("knife") && ending == false) {
 			System.out.println("Our team thinks that this could be significant to the case.\n");
 		}
 		else System.out.println("The team wishes you luck on your case, detective!");
-//		if (inventoryList.contains("THINGY")) {
-//	
-//		}
-
+		if(ending == true) {
+			System.out.println("Good timing, detective. We have just caught the killer.\n"
+					+ "Please come back to the station to interrogate him.");
+		}
 	}
 	
 	
-	//INSPECTING
+	//INSPECTING METHODS
 	void inspectKnife(boolean showDesc) {
 		if (currentRoom == "deli" && roomList.get(currentRoom).items.contains("knife")) {
 			System.out.println("This seems important. You've bagged the item for evidence.");
@@ -469,47 +474,34 @@ public class AdventureMain {
 		if (currentRoom == "b_storage") {
 			System.out.println("There are bodies in there!\n"
 					+ "The bodies match the people in your case. You found the missing people,\n"
-					+ " but sadly they are dead. Look for more clues to find the killer.");
+					+ " but sadly they are dead. You should call this in.");
+			ending = true;
 		}
 		else {
 			System.out.println("There are no bodies here...");
 		}
 	}
 	
+	//END OF INSPECTING METHODS
+	
 	//TAKE
-	void takeItem(String word2) {
-		//is the object in the current room?
-//		for (int i = 0; i < roomList.get(currentRoom).items.size(); i++) {
-//			String itemname = roomList.get(currentRoom).items.get(i);
-//			if (itemname.equals(word2)) {
-//				roomList.get(currentRoom).items.remove(word2);
-//			}
-//		}
-		
-		//DEBUG: list all items in room
-//		System.out.println(currentRoom);
-//		for(String s: roomList.get(currentRoom).items) {
-//			System.out.println("> " + s);
-//		}
-		
+	void takeItem(String word2) {		
 		if(roomList.get(currentRoom).items.contains(word2)) {
 			//if it is, remove it from the room
 			roomList.get(currentRoom).items.remove(word2);
-			//place it in inventory
-			
 			//get the item object.
 			Item item = itemList.get(word2); //do we need to check to see if it is in itemlist?
 						//no. Every created item should be in here.
 			//add it to the inventory
-//			inventoryList.put(word2,item);
 			inventoryList.add(word2);
-			
 			System.out.println("you take the " + word2);
 		}
 		else {
 			System.out.println("sorry, you can't take the " + word2);
 		}
 	}
+	
+	//SHOOT METHODs
 	void shootItem(String word2) {	
 		if(roomList.get(currentRoom).items.contains(word2) && inventoryList.contains("gun")) {
 			//if it is, remove it from the room
@@ -534,6 +526,9 @@ public class AdventureMain {
 		}
 	}
 	
+	//END OF SHOOT METHODS
+	
+	//DROP ITEM METHOD
 	void dropItem(String word2) {	
 		if(inventoryList.contains(word2)) {
 			//if it is, remove it from the room
@@ -548,7 +543,7 @@ public class AdventureMain {
 		}
 	}
 	
-	//HELP COMMAND
+	//HELP METHOD
 	void printHelp() {
 		System.out.println("_.-._.-LIST OF COMMANDS-._.-._\n"
 						 + "*\tquit\n"
@@ -556,10 +551,10 @@ public class AdventureMain {
 						 + "*\ti, inventory\n"
 						 + "*\tlook\n"
 						 + "*\ttalk\n"
-						 + "*\thealth,\n"
+						 + "*\thealth\n"
 						 + "*\teat \'item\', drink \'item\'\n"
 						 + "*\tcall station\n"
-						 + "*\tinspect \'item\'"
+						 + "*\tinspect \'item\'\n"
 						 + "*\ttake \'item\', drop \'item\', shoot \'item\'");
 	}	
 	
