@@ -53,7 +53,7 @@ public class AdventureMain {
 			//check if health is low
 			if (player.health <= 4) {
 				System.out.println("\n_.-._.WARNING: LOW HEALTH._.-._\n\n"
-						+ "Remember, you need to eat and drink to survive. Go to the bakery or deli to find food");
+						+ "Remember, you need to eat and drink to survive.");
 			}
 			//check to see if player has died (in whichever various ways the player can die)
 			if (player.health <= 0) {

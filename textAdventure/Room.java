@@ -78,8 +78,8 @@ class Room{
 		roomList.put("police_station",r);
 		
 	//INTERROGATION ROOM//
-		r = new Room("Police Station", "This is the interrogation room in the Police Station. [S]"
-				+ " South of you is the Main block of the police station. Your pal Bob is here.");
+		r = new Room("Police Station", "This is the interrogation room in the Police Station."
+				+ " South of you is the Main block of the police station. Your pal Bob is here. [S]");
 		r.setExits("", "police_station", "", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("i_room",r);
 				
@@ -211,13 +211,13 @@ class Room{
 		roomList.put("house3_inside",r);
 		
 	//Butchery//
-		r = new Room("Butchery", "The local Butchery is here. South of you is a dirt road. "
+		r = new Room("Butchery", "The local Butchery is here. It smells really bad in here. South of you is a dirt road."
 				+ "To the north of you is the enterance to the Butchery. [N,W,S]");
 		r.setExits("b_inside", "dirt_road", "bract_street", "", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("butchery",r);
 		
 	//Butchery Inside//
-		r = new Room("Butchery", "You are at the entrance to the Butchery. "
+		r = new Room("Butchery", "You are at the entrance to the Butchery. The smell is overpowering. "
 				+ "South of you is the exit. There are pigs hanging from the ceiling. [E,S]");
 		r.setExits("", "butchery", "", "b_storage", "", "");//N,S,W,E,U,D -- put roomList names here
 		roomList.put("b_inside",r);
