@@ -305,13 +305,13 @@ public class AdventureMain {
 			System.out.println("You: Hello, Im the leading Detective "
 					+ "in the missing persons case.  **Press Enter: to see more of the conversation.**\n ");
 			String ans = getCommand();
-			if(ans.equals("qwerty")) System.out.println("Mike: Whats a Detective like you doing in a deli shop,"
+			if(ans.equals("qwerty")) System.out.println("Mike: What's a Detective like you doing in a deli shop,"
 				+ " when there's five missing people in town\n");
 			if(ans.equals("qwerty"))System.out.println("You: Maybe you can help me with that,"
-					+ " have you noticed anthing of interest to te case?\n");
+					+ " have you noticed anthing out of the ordinary?\n");
 			if(ans.equals("qwerty"))System.out.println("Mike: Can't say I have.\n");
 			if(ans.equals("qwerty"))System.out.println("You: Alright, do you mind if I take a look around?\n");
-			if(ans.equals("qwerty"))System.out.println("Mike: Fine! Just don't take long, its not good for buisness.");
+			if(ans.equals("qwerty"))System.out.println("Mike: Sure! Just don't take long, its not good for buisness.");
 		}
 		//HOUSE 1 CONVERSATION 
 		if(currentRoom == "house1_inside") {
