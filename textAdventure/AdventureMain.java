@@ -223,6 +223,7 @@ public class AdventureMain {
 			
 		case "look":
 			lookAtRoom(false);
+			break;
 		case "take":
 			takeItem(word2);
 			break;
