@@ -272,11 +272,11 @@ public class AdventureMain {
 					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
 			String ans = getCommand();
 			if(ans.equals("a")) {
-				System.out.println("Hello Detective, what can I help you with? So sad what"
+				System.out.println("Dave: Hello Detective, what can I help you with? So sad what"
 						+ " happened to those five people.\n ");
 			}
 			if(ans.equals("b")) {
-			   	System.out.println("Of course! It's on the house **Type: Drink Coffee**");
+			   	System.out.println("Dave: Of course! It's on the house **Type: Drink Coffee**");
 			   	return;	
 			}
 					
@@ -284,13 +284,13 @@ public class AdventureMain {
 					+ "tell me that could help me with my case?\n Y - I want a bagel. ");
 			ans = getCommand();
 			if(ans.equals("x")) {
-				System.out.println("\nNothing noticeable around here but I have noticed"
+				System.out.println("\nDave: Nothing noticeable around here but I have noticed"
 						+ " the man at the deli looking a bit suspicious. Maybe talk to"
 						+ " him and take a look around. ");
 				return;//conversation ends
 			}
 			if(ans.equals("y")) {
-				System.out.println("\nOf course! Its on the house **type: Take Bagel**");
+				System.out.println("\nDave: Of course! Its on the house **type: Take Bagel**");
 				return;
 			}
 		}
