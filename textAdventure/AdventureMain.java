@@ -262,8 +262,6 @@ public class AdventureMain {
 			if(ans.equals("qwerty"))System.out.println("You: I couldn\'t of done it without your help!\n");
 			win = true;
 			return;
-		}else {
-			System.out.println("You can't talk right now");
 		}
 			
 		//BAKERY CONVERSATION 
@@ -344,6 +342,8 @@ public class AdventureMain {
 			String ans = getCommand();
 			if(ans.equals("qwerty"))System.out.println("Him: Of course! **Type: Take gun**\n");
 			else return;
+		}else {
+			System.out.println("You can't talk right now");
 		}
 	}//END OF TALKING METHOD
 	
