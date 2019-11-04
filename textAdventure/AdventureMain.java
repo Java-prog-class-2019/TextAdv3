@@ -216,6 +216,9 @@ public class AdventureMain {
 			case "fridge":
 				inspectBody(false);
 			break;
+			case "file":
+				inspectFile(false);
+				break;
 			default: System.out.println("You can't inspect that any further...");
 			
 			}
@@ -272,11 +275,12 @@ public class AdventureMain {
 					+ "in the missing persons case.\n B - Hello, can I get a coffee? ");
 			String ans = getCommand();
 			if(ans.equals("a")) {
-				System.out.println("Dave: Hello Detective, what can I help you with? So sad what"
+				System.out.println("Girl: Hello Detective, what can I help you with? So sad what"
 						+ " happened to those five people.\n ");
 			}
 			if(ans.equals("b")) {
-			   	System.out.println("Dave: Of course! It's on the house **Type: Drink Coffee**");
+			   	System.out.println("Girl: Of course! It's on the house **Type: Drink Coffee**");
+			   	inventoryList.add("coffee");
 			   	return;	
 			}
 					
@@ -284,13 +288,14 @@ public class AdventureMain {
 					+ "tell me that could help me with my case?\n Y - I want a bagel. ");
 			ans = getCommand();
 			if(ans.equals("x")) {
-				System.out.println("\nDave: Nothing noticeable around here but I have noticed"
+				System.out.println("\nGirl: Nothing noticeable around here but I have noticed"
 						+ " the man at the deli looking a bit suspicious. Maybe talk to"
 						+ " him and take a look around. ");
 				return;//conversation ends
 			}
 			if(ans.equals("y")) {
-				System.out.println("\nDave: Of course! Its on the house **type: Take Bagel**");
+				System.out.println("\nGirl: Of course! Its on the house **type: Take Bagel**");
+				inventoryList.add("bagel");
 				return;
 			}
 		}
@@ -317,8 +322,8 @@ public class AdventureMain {
 					+ "help. I understand that your daughter was one of the missing people.\n");
 			if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: Yes, yes do you have any information for me first?\n");
 			if(ans.equals("qwerty"))System.out.println("You: Well, I’m working on it. Where was the last time you saw your daughter?\n");
-			if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: well it was a few days ago… I was supposed to pick her up between the deli and the bakery but…\n");
-			if(ans.equals("qwerty"))System.out.println("You: I’m sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
+			if(ans.equals("qwerty"))System.out.println("Mrs. Johnston: well it was a few days ago I was supposed to pick her up between the deli and the bakery but\n");
+			if(ans.equals("qwerty"))System.out.println("You: I'm sorry to bring this up but it’s very helpful. Do you remember what she was wearing? \n");
 			if(ans.equals(""))System.out.println("Mrs Johnston: Um.. let me think, a pink sweater and orange yoga pants. \n");
 			if(ans.equals("qwerty"))System.out.println("You: thank you for your time, i'll let you knows soon as I find out more. \n");
 		}
@@ -477,6 +482,13 @@ public class AdventureMain {
 		}
 		else {
 			System.out.println("There are no knives here...");
+		}
+	}
+	void inspectFile(boolean showDesc) {
+		if (inventoryList.contains("file") || roomList.get(currentRoom).items.contains("file")) {
+			System.out.println("The file says that you need to find five missing people. Presumably taken by a kidnapper.");
+		} else {
+			System.out.println("You don't have the file on you.");
 		}
 	}
 	void inspectBlood(boolean showDesc) {
